@@ -37,7 +37,7 @@ The project follows an end-to-end workflow including data validation, explorator
 
 This project analyses more than 500,000 hourly pedestrian observations from the City of Melbourne's 2026 Pedestrian Counting System to understand urban mobility patterns and predict pedestrian demand across sensor locations.
 
-The analysis combines exploratory data analysis, statistical testing and machine learning. Models were trained using January–July 2026 observations and evaluated on unseen August data to simulate forecasting future pedestrian demand.
+The analysis combines exploratory data analysis, statistical testing and machine learning. Models were trained using January–July 2026 observations and evaluated on unseen observations from 1–13 August 2026, preserving chronological order to simulate forecasting future pedestrian demand.
 
 Gradient boosting produced the strongest overall performance, achieving an **R² of 0.895**, **MAE of 98.99 pedestrians per sensor-hour**, and **RMSE of 183.74**, outperforming both a historical-average baseline and simpler predictive models.
 
@@ -45,11 +45,12 @@ The analysis found that **sensor location and hour of day are the strongest pred
 
 These findings demonstrate how machine learning can support data-driven urban mobility planning while also highlighting the importance of external contextual data and responsible model monitoring.
 
+
 ## Data Source
 
 The analysis uses open pedestrian sensor data published by the City of Melbourne.
 
-The primary dataset contains hourly pedestrian counts recorded by sensors across Melbourne during 2026. A supplementary sensor-location dataset provides descriptive information about each sensor, including location names and geographic coordinates.
+Gradient boosting produced the strongest overall performance, achieving an R² of 0.895, MAE of 98.14 pedestrians per sensor-hour, and RMSE of 184.49, substantially outperforming the baseline, linear regression and random forest models.
 
 **Analysis period:** 1 January 2026 – 14 August 2026  
 **Observations:** 505,887 hourly sensor records  
@@ -232,26 +233,8 @@ plt.show()
 ```
 Weekday and weekend pedestrian activity display distinct temporal patterns. Weekdays show pronounced peaks around 8 AM and 5 PM, while weekend activity rises later and remains comparatively high through the afternoon and evening. This indicates that day type and hour of day are important features for modelling pedestrian demand.
 
-## Pedestrian Demand by Location
 
-Pedestrian activity can vary substantially across Melbourne. Average pedestrian counts are compared across sensor locations to identify areas experiencing the highest levels of foot traffic.
-
-```{python}
-# Calculate average pedestrian demand for each sensor
-location_demand = (
-    df.groupby(["Location_ID", "Sensor_Name"])["Total_of_Directions"]
-      .mean()
-      .reset_index()
-      .sort_values("Total_of_Directions", ascending=False)
-)
-
-# Display the 10 busiest sensors
-top_locations = location_demand.head(10)
-
-top_locations
-```
-
-## Sensor Location Enrichment
+## Location Data Integration
 
 The hourly pedestrian dataset contains sensor identifiers but limited descriptive information about each location. The City of Melbourne sensor-location dataset is therefore joined to the pedestrian counts using the common `Location_ID` field.
 
@@ -336,8 +319,6 @@ plt.tight_layout()
 plt.show()
 ```
 
-Pedestrian demand varies substantially across monitored locations. Flinders Lane–Swanston Street (West) and Town Hall (West) recorded the highest average hourly pedestrian counts, demonstrating that location is likely to be an important predictor of pedestrian demand.
-
 Pedestrian activity is highly concentrated geographically. Several central-city locations, including Flinders Lane–Swanston Street, Town Hall, Melbourne Central and Southbank Promenade, record substantially higher average hourly pedestrian volumes than other monitored locations.
 
 ## Pedestrian Demand by Day of Week
@@ -420,7 +401,6 @@ print("p-value:", p_value)
 
 The distribution of pedestrian demand differs significantly between weekdays and weekends (Mann–Whitney U test, p = 0.0019). However, average demand is very similar across the two groups (392.6 vs 396.6 pedestrians per hour). This suggests that the more important distinction is not overall demand volume, but how demand is distributed throughout the day, as shown by the different hourly patterns observed in the exploratory analysis.
 
-Weekday demand rises more sharply during the morning and displays a pronounced late-afternoon peak, while weekend activity is more evenly distributed throughout the day. Despite these different hourly profiles, overall mean pedestrian counts are similar across weekdays and weekends.
 
 # Machine Learning
 
@@ -428,7 +408,7 @@ Weekday demand rises more sharply during the morning and displays a pronounced l
 
 The modelling objective is to predict hourly pedestrian demand (`Total_of_Directions`) for individual sensor locations using temporal and location information.
 
-To better represent a real forecasting scenario, observations are split chronologically rather than randomly. Models are trained using observations before August 2026 and evaluated on unseen observations from August 2026.
+To better represent a real forecasting scenario, observations are split chronologically rather than randomly. Models were trained using January–July 2026 observations and evaluated on unseen observations from 1–13 August 2026. The incomplete observations from 14 August were excluded from model evaluation.
 
 ```{python}
 # Select features for modelling
@@ -444,7 +424,11 @@ target = "Total_of_Directions"
 
 # Chronological train/test split
 train = df[df["Sensing_Date"] < "2026-08-01"].copy()
-test = df[df["Sensing_Date"] >= "2026-08-01"].copy()
+
+test = df[
+    (df["Sensing_Date"] >= "2026-08-01") &
+    (df["Sensing_Date"] <= "2026-08-13")
+].copy()
 
 X_train = train[features]
 y_train = train[target]
@@ -583,11 +567,11 @@ print("Random Forest RMSE:", round(rf_rmse, 2))
 print("Random Forest R²:", round(rf_r2, 3))
 ```
 
-Random Forest outperformed Linear Regression on the unseen August test period, reducing MAE from 288.5 to 173.4 pedestrians per sensor-hour and increasing R² from 0.403 to 0.746. This suggests that pedestrian demand is strongly influenced by nonlinear relationships and interactions between location and temporal features.
+Random Forest outperformed Linear Regression on the unseen August test period, reducing MAE from 288.83 to 175.07 pedestrians per sensor-hour and increasing R² from 0.406 to 0.745. This suggests that nonlinear relationships and interactions between location and temporal features are important for predicting pedestrian demand.
 
 ## Gradient Boosting
 
-The gradient boosting model is evaluated as an alternative nonlinear approach. Unlike Random Forest, which constructs many independent decision trees, gradient boosting builds trees sequentially, with each new tree attempting to correct errors made by the previous model.
+Gradient boosting is evaluated as a flexible nonlinear model capable of capturing complex interactions between location and temporal features.
 
 ```{python}
 from sklearn.ensemble import HistGradientBoostingRegressor
@@ -610,6 +594,9 @@ gradient_boosting.fit(X_train, y_train)
 
 # Predict unseen August observations
 gb_predictions = gradient_boosting.predict(X_test)
+
+# Pedestrian counts cannot be negative
+gb_predictions = np.maximum(gb_predictions, 0)
 
 # Evaluate model
 gb_mae = mean_absolute_error(y_test, gb_predictions)
@@ -703,30 +690,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Gradient boosting reduced mean absolute error from 392.79 pedestrians per sensor-hour for the baseline to 98.99, representing an approximately 75% reduction in prediction error.
-
-
-### Predictive Performance
-
-```{python}
-# Plot MAE comparison
-plt.figure(figsize=(8, 5))
-
-plt.bar(
-    model_results["Model"],
-    model_results["MAE"]
-)
-
-plt.title("Model Performance on Unseen August 2026 Data")
-plt.xlabel("Model")
-plt.ylabel("Mean Absolute Error (MAE)")
-plt.xticks(rotation=20)
-plt.tight_layout()
-
-plt.show()
-```
-
-Gradient Boosting achieved the strongest predictive performance on the unseen August 2026 test period, with an MAE of 99.0 pedestrians per sensor-hour, RMSE of 183.7 and R² of 0.895. This is an improvement over both Linear Regression and Random Forest, indicating that nonlinear relationships between time, location and pedestrian demand are important for accurate prediction.
+Gradient boosting reduced mean absolute error from 393.16 pedestrians per sensor-hour for the baseline to 98.14, representing an approximately 75% reduction in MAE.
 
 ## Actual vs Predicted Demand
 
@@ -751,16 +715,6 @@ prediction_results["Absolute_Error"] = abs(
     - prediction_results["Predicted_Demand"]
 )
 
-prediction_results[
-    [
-        "Sensing_Date",
-        "HourDay",
-        "Sensor_Description",
-        "Total_of_Directions",
-        "Predicted_Demand",
-        "Absolute_Error"
-    ]
-].head(10)
 ```
 
 Predictions generally track observed pedestrian demand closely, consistent with the model's R² of 0.895. Prediction errors become more pronounced at unusually high pedestrian volumes, indicating that extreme demand spikes are more difficult to forecast from location and temporal features alone.
@@ -797,7 +751,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Predicted demand generally aligns closely with observed demand, consistent with the model's R² of 0.895. However, prediction errors increase for some extreme high-demand observations, where the model tends to underestimate unusually large pedestrian volumes. A small number of predictions also fall below zero during very low-demand periods, highlighting a limitation of the unconstrained regression model.
+Predicted demand generally aligns closely with observed demand, consistent with the model's R² of 0.895. However, errors increase for some extreme high-demand observations, where the model tends to underestimate unusually large pedestrian volumes. This indicates that location and temporal patterns explain regular pedestrian activity well but do not fully capture abnormal demand spikes.
 
 ## Model Interpretation
 
@@ -854,7 +808,7 @@ Aggregate performance metrics can conceal important model weaknesses. Prediction
 ### Largest Prediction Errors
 
 ```{python}
-# Find the 15 largest prediction errors
+# Find the 8 largest prediction errors
 largest_errors = (
     prediction_results
     .sort_values("Absolute_Error", ascending=False)
@@ -868,7 +822,7 @@ largest_errors = (
             "Absolute_Error"
         ]
     ]
-    .head(15)
+    .head(8)
 )
 
 largest_errors.round(1)
@@ -913,7 +867,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Prediction error varies across the August test period, with 9 August producing the highest average error (MAE ≈ 132). Examination of the largest individual errors shows that this deterioration is concentrated around unusually high pedestrian counts at locations including RMIT and Swanston Street. This suggests that the model captures regular mobility patterns effectively but is less accurate during unusual demand spikes. The final day of the dataset (14 August) may represent a partial day and should therefore not be directly compared with complete days.
+Prediction error varies across the August test period, with 9 August producing the highest average error (MAE ≈ 130). Examination of the largest individual errors shows that this deterioration is concentrated around unusually high pedestrian counts at locations including RMIT and Swanston Street. This suggests that the model captures regular mobility patterns effectively but is less accurate during unusual demand spikes. 
 
 ## Model Refinement
 
@@ -945,7 +899,7 @@ df[
 
 ### Refined Gradient Boosting Model
 
-The final model removes the redundant weekend indicator and replaces raw hour and day-of-week variables with cyclical representations.
+The refined model removes the redundant weekend indicator and replaces raw hour and day-of-week variables with cyclical representations.
 
 ```{python}
 refined_features = [
@@ -962,7 +916,10 @@ y_refined = df["Total_of_Directions"]
 
 # Preserve chronological train/test split
 train_mask = df["Sensing_Date"] < "2026-08-01"
-test_mask = df["Sensing_Date"] >= "2026-08-01"
+test_mask = (
+    (df["Sensing_Date"] >= "2026-08-01") &
+    (df["Sensing_Date"] <= "2026-08-13")
+)
 
 X_train_refined = X_refined[train_mask]
 X_test_refined = X_refined[test_mask]
@@ -1036,44 +993,19 @@ print("RMSE:", round(refined_rmse, 2))
 print("R²:", round(refined_r2, 3))
 ```
 
-Cyclical encoding produced only a marginal change in predictive performance. R² increased from 0.895 to 0.899 and RMSE decreased from 183.74 to 179.88, while MAE increased slightly from 98.99 to 100.65. This suggests that the gradient boosting model was already capable of capturing much of the nonlinear temporal structure from the original features. Given its slightly lower MAE and simpler feature representation, the original gradient boosting model is retained as the primary model.
+Cyclical encoding produced only a marginal change in predictive performance. R² increased from 0.895 to 0.899 and RMSE decreased from 184.49 to 180.75, while MAE increased slightly from 98.14 to 101.29. This suggests that the original gradient boosting model was already capable of capturing much of the nonlinear temporal structure. Given its lower MAE and simpler feature representation, the original gradient boosting model is retained as the primary model.
 
 ## Key Findings
 
-### 1. Pedestrian demand is highly location-dependent
+1. **Pedestrian demand is highly location-dependent.** Central-city locations including Flinders Lane–Swanston Street, Town Hall, Melbourne Central and Southbank Promenade recorded some of the highest average pedestrian volumes.
 
-Pedestrian activity varies substantially across Melbourne's sensor network. Locations including Flinders Lane–Swanston Street, Town Hall, Melbourne Central and Southbank Promenade recorded some of the highest average hourly pedestrian volumes in the 2026 data.
+2. **Time of day is a major driver of demand.** Activity rises sharply through the morning and remains elevated during the day, with clear differences between weekday and weekend profiles.
 
-### 2. Time of day strongly influences pedestrian activity
+3. **Nonlinear machine-learning models substantially improve forecasting.** Gradient Boosting achieved an MAE of 98.14 and R² of 0.895 on unseen observations from 1–13 August, reducing MAE by approximately 75% relative to the baseline.
 
-Demand follows clear intraday patterns. Activity is low overnight, increases sharply during the morning, remains elevated throughout the daytime and reaches particularly high levels during the late afternoon.
+4. **Location and hour of day are the strongest predictive features.** Permutation importance showed substantially greater contributions from these variables than other temporal features.
 
-Weekday and weekend profiles also differ, demonstrating that aggregate pedestrian demand is shaped by recurring behavioural patterns.
-
-### 3. Machine learning substantially improves demand prediction
-
-A simple historical-average baseline achieved an R² close to zero, while progressively more flexible models captured substantially more variation in pedestrian demand.
-
-| Model | MAE | RMSE | R² |
-|---|---:|---:|---:|
-| Historical Average Baseline | 392.79 | 567.26 | -0.001 |
-| Linear Regression | 288.53 | 437.84 | 0.404 |
-| Random Forest | 173.35 | 285.93 | 0.746 |
-| Gradient Boosting | **98.99** | **183.74** | **0.895** |
-
-The gradient boosting model reduced MAE by approximately **75% relative to the baseline**, demonstrating the value of modelling nonlinear relationships between location, time and pedestrian demand.
-
-### 4. Location and hour are the dominant predictive factors
-
-Permutation importance analysis identified sensor location and hour of day as the strongest predictors of pedestrian demand. Day of week provided additional information, while the weekend indicator contributed little additional predictive information once other temporal variables were included.
-
-### 5. Unusual demand spikes remain difficult to predict
-
-The model's largest errors were concentrated around particular locations and dates rather than being uniformly distributed.
-
-Several substantial underpredictions occurred around RMIT and Swanston Street on 9 August 2026, suggesting that unusual demand shocks cannot always be explained using historical location and temporal patterns alone.
-
-This provides a clear opportunity to incorporate contextual variables such as events, weather, public holidays and transport disruptions in future versions of the model.
+5. **Extreme demand spikes remain difficult to forecast.** The largest errors were concentrated around specific locations and dates, suggesting that events, weather and transport disruptions could improve future models.
 
 ## Recommendations
 
@@ -1092,32 +1024,15 @@ The model should therefore be treated as a decision-support system rather than a
 
 ## Data Governance and Responsible Model Use
 
-Predictive performance alone is not sufficient for deploying a data-driven system. The quality, representativeness and limitations of the underlying data must also be considered.
-
 ### Data Quality
+No pedestrian-count observations were missing, although 1,017 records lacked descriptive sensor metadata. These observations were retained because the variables required for modelling remained available.
 
-The dataset contained no duplicate observations and no missing pedestrian counts. However, 1,017 observations were missing sensor metadata such as sensor name and location description. These observations were retained because the core variables required for modelling remained available.
-
-Sensor readings should not automatically be interpreted as perfect measurements of true pedestrian activity. Hardware failures, sensor maintenance, changes in sensor configuration and unusual observations may affect data quality.
 
 ### Representativeness
-
-The analysis represents pedestrian activity only at locations where City of Melbourne sensors are installed. Consequently, predictions should not be interpreted as estimates of pedestrian activity across every part of Melbourne.
-
-Sensor placement may also disproportionately represent high-traffic areas of the CBD, meaning the dataset reflects the sensor network rather than a random sample of Melbourne locations.
+The sensor network covers monitored locations rather than a random sample of Melbourne. Results therefore describe activity within the City of Melbourne sensor network and should not be interpreted as complete city-wide pedestrian estimates.
 
 ### Model Risk
-
-The model performs strongly on the chronological August test period, achieving an R² of 0.895 and MAE of 98.99 pedestrians per sensor-hour. However, error analysis identified substantial underprediction during unusual demand spikes.
-
-For example, several observations around RMIT and Swanston Street on 9 August recorded pedestrian volumes several times larger than predicted.
-
-This demonstrates an important limitation: the model learns recurring patterns from historical location and time information but does not directly observe external factors such as major events, weather, public holidays or transport disruptions.
+The model performs well under recurring mobility patterns but underpredicts some extreme demand spikes. External factors such as events, weather, public holidays and transport disruptions are not currently included.
 
 ### Responsible Use
-
-The model is therefore best suited as a decision-support or forecasting tool rather than an autonomous decision-making system.
-
-Predictions could support applications such as urban planning, staffing, transport operations or resource allocation, but unusually high-impact predictions should be interpreted alongside contextual information and human judgement.
-
-Model performance should also be monitored over time because changes in pedestrian behaviour, sensor infrastructure or the urban environment may cause model performance to deteriorate.
+Forecasts are best used as decision-support for planning and resource allocation. Performance should be monitored over time as pedestrian behaviour and the sensor network evolve.

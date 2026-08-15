@@ -13,3 +13,16 @@ __pycache__/
 
 # macOS
 .DS_Store
+
+# R / RStudio temporary files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Editor / system files
+.vscode/
+.DS_Store
