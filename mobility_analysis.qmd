@@ -185,7 +185,7 @@ plt.ylabel("Average Pedestrian Count")
 plt.xticks(range(0, 24))
 plt.grid(alpha=0.3)
 plt.tight_layout()
-
+plt.savefig("figures/hourly_demand.png", dpi=200, bbox_inches="tight")
 plt.show()
 ```
 Pedestrian demand displays a strong time-of-day pattern. Activity increases sharply during the morning, remains elevated throughout the middle of the day, and reaches its highest average level at approximately 5 PM. The pronounced afternoon peak suggests that time of day is likely to be an important predictor of pedestrian demand.
@@ -687,6 +687,7 @@ for bar, value in zip(bars, model_mae):
 
 plt.xticks(rotation=15)
 plt.tight_layout()
+plt.savefig("figures/model_performance.png", dpi=200, bbox_inches="tight")
 plt.show()
 ```
 
@@ -747,7 +748,7 @@ plt.title("Actual vs Predicted Pedestrian Demand")
 plt.xlabel("Actual Pedestrian Count")
 plt.ylabel("Predicted Pedestrian Count")
 plt.tight_layout()
-
+plt.savefig("figures/actual_vs_predicted.png", dpi=200, bbox_inches="tight")
 plt.show()
 ```
 

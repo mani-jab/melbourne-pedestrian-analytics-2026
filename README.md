@@ -1,112 +1,205 @@
 # Melbourne Pedestrian Mobility Analytics 2026
 
-An end-to-end project analysing over **500,000 hourly pedestrian observations** from Melbourne's pedestrian sensor network and developing machine-learning models to forecast pedestrian demand.
+An end-to-end project analysing 500,000+ hourly pedestrian observations across Melbourne to understand mobility patterns and predict future pedestrian demand using machine learning.
+
+The project combines exploratory data analysis, statistical testing, feature engineering and predictive modelling, with models evaluated on a chronologically held-out period to simulate forecasting unseen future demand.
 
 ## Project Overview
 
-Pedestrian activity varies substantially across Melbourne depending on location, time and day.
+Pedestrian activity across Melbourne varies substantially by location, time of day and day of week. Understanding these patterns can support decisions around urban planning, transport, infrastructure and resource allocation.
 
 This project investigates three questions:
 
-1. When and where is pedestrian demand highest?
-2. Which factors are most strongly associated with pedestrian demand?
-3. How accurately can future pedestrian activity be predicted using machine learning?
+1. **When and where is pedestrian demand highest?**
+2. **Which factors are most strongly associated with pedestrian demand?**
+3. **How accurately can future pedestrian activity be predicted using machine learning?**
 
-The project covers the complete data science workflow from data validation and exploratory analysis through statistical testing, feature engineering, machine learning, model interpretation and responsible AI considerations.
+The analysis has the following workflow:
+
+**Data validation → Exploratory analysis → Statistical testing → Feature engineering → Machine learning → Model evaluation → Model interpretation**
 
 ## Dataset
 
 **Source:** City of Melbourne Open Data – Pedestrian Counting System
 
-**Period:** January–August 2026  
-**Observations:** 505,887 hourly sensor records  
-**Locations represented:** 101  
-**Target:** Hourly pedestrian demand
+- **505,887** hourly pedestrian observations
+- **101** sensor locations represented
+- Data spanning **January–August 2026**
+- Hourly pedestrian counts across Melbourne's sensor network
+- Supplementary sensor-location data used to provide descriptive location information
 
-A supplementary sensor-location dataset was joined to the count data to provide descriptive location information.
+The prediction target is **hourly pedestrian demand** (`Total_of_Directions`).
 
-## Tools
+## Technologies
 
-- Python
-- pandas
-- NumPy
-- Matplotlib
-- SciPy
-- scikit-learn
-- Quarto
-- Git / GitHub
+**Language:** Python
 
-## Analysis
+**Data & Analysis:** pandas, NumPy, SciPy
 
-The project includes:
+**Machine Learning:** scikit-learn
 
-- Data quality validation and cleaning
-- Exploratory data analysis
-- Temporal feature engineering
-- Statistical comparison of weekday and weekend demand
-- Chronological train/test splitting
-- Baseline forecasting
-- Linear regression
-- Random forest regression
-- Gradient boosting
-- Model comparison
-- Permutation feature importance
-- Prediction error analysis
-- Cyclical feature engineering
-- Data governance and model-risk analysis
+**Visualisation:** Matplotlib
+
+**Reporting & Development:** Quarto, VS Code, Git, GitHub
+
+## Analysis Workflow
+
+### 1. Data Validation & Preparation
+
+The raw pedestrian-count and sensor-location datasets were inspected for:
+
+- Missing values
+- Duplicate observations
+- Data types
+- Temporal coverage
+- Sensor coverage
+- Merge quality
+
+Sensor metadata was joined to the pedestrian observations to provide interpretable location descriptions.
+
+### 2. Exploratory Data Analysis
+
+Pedestrian demand was analysed across:
+
+- Sensor locations
+- Hour of day
+- Day of week
+- Weekday vs weekend periods
+- Time
+
+This revealed substantial differences in pedestrian activity across both **space and time**.
+
+### 3. Statistical Analysis
+
+Statistical testing was used to investigate whether observed differences in pedestrian demand between weekday and weekend periods were supported by the data rather than relying solely on visual patterns.
+
+### 4. Feature Engineering
+
+Temporal features were created from the timestamp, including:
+
+- Hour of day
+- Day of week
+- Month
+- Weekend indicator
+
+Cyclical transformations were also investigated to represent the repeating nature of hourly and weekly time patterns.
+
+### 5. Machine Learning
+
+Four approaches were compared:
+
+- Historical-average baseline
+- Linear Regression
+- Random Forest Regression
+- Gradient Boosting Regression
+
+Rather than randomly splitting observations, the models were trained on earlier observations and evaluated on a **future chronological holdout period**.
+
+**Training period:** January–July 2026  
+**Testing period:** August 2026
+
+This prevents future observations from leaking into model training and better represents a real forecasting scenario.
 
 ## Model Performance
 
-Models were trained using January–July observations and evaluated on unseen August 2026 data.
-
 | Model | MAE | RMSE | R² |
 |---|---:|---:|---:|
-| Historical Average Baseline | 392.79 | 567.26 | -0.001 |
-| Linear Regression | 288.53 | 437.84 | 0.404 |
-| Random Forest | 173.35 | 285.93 | 0.746 |
-| **Gradient Boosting** | **98.99** | **183.74** | **0.895** |
+| Historical Average Baseline | 393.16 | 569.14 | -0.001 |
+| Linear Regression | 288.83 | 438.45 | 0.406 |
+| Random Forest | 175.07 | 287.51 | 0.745 |
+| **Gradient Boosting** | **98.14** | **184.49** | **0.895** |
 
-Gradient boosting reduced mean absolute error by approximately **75% relative to the baseline**.
+**Gradient Boosting was the strongest-performing model**, achieving an R² of **0.895** on unseen August observations.
+
+Its MAE of **98.14 pedestrians** represents an approximately **75% reduction in mean absolute error compared with the historical-average baseline**.
+
+### Model Comparison
+
+![Machine-learning model performance comparison](figures/model_performance.png)
+
+### Actual vs Predicted Demand
+
+The final model captures the overall structure of pedestrian demand well, while the largest deviations occur during unusually high-demand observations.
+
+![Actual vs predicted pedestrian demand](figures/actual_vs_predicted.png)
+
 
 ## Key Findings
 
-- **Location and hour of day are the strongest predictors** of pedestrian demand.
-- Pedestrian activity displays strong recurring intraday patterns.
-- Demand varies substantially across sensor locations.
-- Gradient boosting explained approximately **89.5% of variation in unseen August observations**.
-- The largest prediction errors were concentrated around unusual demand spikes, particularly around RMIT and Swanston Street on 9 August.
-- External information such as events, weather, public holidays and transport disruptions could potentially improve forecasting of abnormal demand.
+- **Location and hour of day were the strongest predictors of pedestrian demand.**
+- Pedestrian activity follows strong recurring intraday patterns.
+- Demand varies substantially between sensor locations.
+- Tree-based ensemble models substantially outperformed both the baseline and linear regression.
+- Gradient Boosting explained approximately **89.5% of the variation in unseen observations**.
+- Prediction errors were substantially larger during unusual demand spikes.
+- Several of the largest errors occurred around **Building 80 RMIT on 9 August**, where observed pedestrian counts greatly exceeded model predictions.
 
-## Responsible Model Use
+The error analysis suggests that historical location and time patterns explain normal pedestrian activity well, but unusual spikes may require additional contextual information.
 
-The sensor network does not represent every Melbourne location equally, and sensor readings may be affected by infrastructure or measurement issues.
+### Pedestrian Demand Patterns
 
-The model also learns primarily from historical location and temporal patterns and cannot directly anticipate external shocks.
+Pedestrian activity follows strong recurring patterns throughout the day, highlighting the importance of time-of-day information when modelling demand.
 
-Predictions should therefore be treated as decision-support information rather than autonomous decisions, with performance monitored as pedestrian behaviour and sensor infrastructure change.
+![Average pedestrian demand by hour](figures/hourly_demand.png)
+
+
+## Model Interpretation
+
+Permutation feature importance was used to examine which variables contributed most strongly to predictive performance.
+
+The analysis identified:
+
+1. **Location**
+2. **Hour of day**
+3. **Day of week**
+
+as the most influential predictors.
+
+This aligns with the exploratory analysis: pedestrian activity is highly dependent on **where a sensor is located and when the observation occurs**.
+
+## Limitations & Responsible Model Use
+
+The model primarily learns recurring patterns from historical location and temporal information. It does not currently include external factors such as:
+
+- Weather
+- Major events
+- Public holidays
+- Public transport disruptions
+
+As a result, the model may underpredict unusual demand spikes caused by circumstances not represented in its features.
+
+The sensor network also represents monitored locations rather than a random sample of Melbourne. Results therefore describe pedestrian activity within the available sensor network and should not be interpreted as complete city-wide pedestrian estimates.
+
+Predictions are best treated as **decision-support information** rather than autonomous decisions, with model performance monitored as pedestrian behaviour and sensor infrastructure evolve.
 
 ## Repository Structure
 
 ```text
 melbourne-mobility-analytics/
-├── data/                  # Source datasets
-├── figures/               # Project visualisations
-├── mobility_analysis.qmd  # Complete analysis and Python code
-├── mobility_analysis.html # Rendered Quarto report
-├── requirements.txt       # Python dependencies
+├── data/
+│   ├── pedestrian_counts_2026.csv
+│   └── sensor_locations.csv
+├── figures/
+├── mobility_analysis.qmd
+├── mobility_analysis.html
+├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
 
-## Reproducibility
+`mobility_analysis.qmd` contains the complete analysis, Python code, methodology and interpretation.
 
-Install the required Python packages with:
+`mobility_analysis.html` contains the rendered interactive Quarto report for easier viewing.
+
+## Reproducing the Analysis
+
+Clone the repository and install the required Python packages:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Then render the Quarto analysis with:
+Then render the complete Quarto report:
 
 ```bash
 quarto render mobility_analysis.qmd
@@ -114,13 +207,15 @@ quarto render mobility_analysis.qmd
 
 ## Future Improvements
 
-Potential extensions include incorporating:
+The forecasting system could be extended by incorporating:
 
 - Weather conditions
-- Public holidays
 - Major event schedules
+- Public holidays
 - Public transport disruptions
 - Longer historical periods
 - Time-series cross-validation
 - Hyperparameter optimisation
-- Interactive forecasting dashboard
+- Interactive forecasting dashboards
+
+These additions could help explain unusual pedestrian-demand spikes that cannot be captured using location and temporal patterns alone.

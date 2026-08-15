@@ -2359,7 +2359,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 </section>
 <section id="data-loading" class="level1">
 <h1>Data Loading</h1>
-<div id="e6344bbb" class="cell" data-execution_count="1">
+<div id="bbbd7441" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -2378,7 +2378,7 @@ var requirejs,require,define;(function(global,setTimeout){var req,s,head,baseEle
 <section id="data-understanding" class="level1">
 <h1>Data Understanding</h1>
 <p>Before conducting the analysis, the structure, variable types, missing values, and coverage of the dataset are examined.</p>
-<div id="f4c9d777" class="cell" data-execution_count="2">
+<div id="78813f73" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display all column names</span></span>
@@ -2508,7 +2508,7 @@ memory usage: 34.7 MB</code></pre>
 <section id="data-quality-assessment" class="level1">
 <h1>Data Quality Assessment</h1>
 <p>Before analysis, the dataset is checked for duplicate observations, missing values, temporal coverage, and consistency between directional and total pedestrian counts.</p>
-<div id="00114629" class="cell" data-execution_count="3">
+<div id="ab51cc4e" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for duplicate rows</span></span>
@@ -2563,7 +2563,7 @@ Rows where directional counts do not equal total: 0</code></pre>
 <section id="data-preparation-and-feature-engineering" class="level1">
 <h1>Data Preparation and Feature Engineering</h1>
 <p>The raw date and hour variables are transformed into features that better represent temporal patterns in pedestrian demand.</p>
-<div id="a5a116bb" class="cell" data-execution_count="4">
+<div id="eb4588f6" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove ID because it is only an observation identifier</span></span>
@@ -2725,7 +2725,7 @@ Rows where directional counts do not equal total: 0</code></pre>
 <section id="pedestrian-demand-by-hour-of-day" class="level2">
 <h2 class="anchored" data-anchor-id="pedestrian-demand-by-hour-of-day">Pedestrian Demand by Hour of Day</h2>
 <p>Pedestrian activity is first examined across the 24-hour day to identify recurring periods of high and low demand.</p>
-<div id="2d8da225" class="cell" data-execution_count="5">
+<div id="b745605c" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate average pedestrian count for each hour</span></span>
@@ -2750,7 +2750,7 @@ Rows where directional counts do not equal total: 0</code></pre>
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">24</span>))</span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>plt.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">&quot;figures/hourly_demand.png&quot;</span>, dpi<span class="op">=</span><span class="dv">200</span>, bbox_inches<span class="op">=</span><span class="st">&quot;tight&quot;</span>)</span>
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -2766,7 +2766,7 @@ Rows where directional counts do not equal total: 0</code></pre>
 <section id="weekday-vs-weekend-demand" class="level2">
 <h2 class="anchored" data-anchor-id="weekday-vs-weekend-demand">Weekday vs Weekend Demand</h2>
 <p>To determine whether daily mobility patterns differ between working and non-working days, hourly pedestrian demand is compared between weekdays and weekends.</p>
-<div id="0bfaae7c" class="cell" data-execution_count="6">
+<div id="58630b51" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create readable labels</span></span>
@@ -2818,7 +2818,7 @@ Rows where directional counts do not equal total: 0</code></pre>
 <section id="location-data-integration" class="level2">
 <h2 class="anchored" data-anchor-id="location-data-integration">Location Data Integration</h2>
 <p>The hourly pedestrian dataset contains sensor identifiers but limited descriptive information about each location. The City of Melbourne sensor-location dataset is therefore joined to the pedestrian counts using the common <code>Location_ID</code> field.</p>
-<div id="136f6447" class="cell" data-execution_count="7">
+<div id="f8c73714" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the sensor location dataset</span></span>
@@ -2946,7 +2946,7 @@ Column names:
 <section id="joining-sensor-information-to-pedestrian-counts" class="level3">
 <h3 class="anchored" data-anchor-id="joining-sensor-information-to-pedestrian-counts">Joining Sensor Information to Pedestrian Counts</h3>
 <p>Relevant location attributes are merged with the hourly pedestrian observations using <code>Location_ID</code>.</p>
-<div id="5df1a122" class="cell" data-execution_count="8">
+<div id="5a464c4f" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the location information needed for analysis</span></span>
@@ -3094,7 +3094,7 @@ Missing sensor descriptions: 1017</code></pre>
 <section id="highest-demand-locations" class="level2">
 <h2 class="anchored" data-anchor-id="highest-demand-locations">Highest-Demand Locations</h2>
 <p>Average pedestrian demand is compared across sensor locations to identify the busiest monitored areas in Melbourne.</p>
-<div id="cb6a1748" class="cell" data-execution_count="9">
+<div id="aadde570" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate average demand by location</span></span>
@@ -3132,7 +3132,7 @@ Missing sensor descriptions: 1017</code></pre>
 <section id="pedestrian-demand-by-day-of-week" class="level2">
 <h2 class="anchored" data-anchor-id="pedestrian-demand-by-day-of-week">Pedestrian Demand by Day of Week</h2>
 <p>Average pedestrian demand is compared across each day of the week to identify broader weekly mobility patterns.</p>
-<div id="79e9459e" class="cell" data-execution_count="10">
+<div id="c845ca85" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set days in calendar order</span></span>
@@ -3179,7 +3179,7 @@ Missing sensor descriptions: 1017</code></pre>
 <p>Exploratory analysis suggests that pedestrian demand differs between weekdays and weekends. A Mann–Whitney U test is used to assess whether the distributions of hourly pedestrian counts differ significantly between these two groups.</p>
 <p><strong>Null hypothesis (H₀):</strong> The distribution of pedestrian demand is the same for weekdays and weekends.</p>
 <p><strong>Alternative hypothesis (H₁):</strong> The distribution of pedestrian demand differs between weekdays and weekends.</p>
-<div id="80a3e36b" class="cell" data-execution_count="11">
+<div id="92ae86b0" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> mannwhitneyu</span>
@@ -3238,7 +3238,7 @@ p-value: 0.0019369064152551113</code></pre>
 <h2 class="anchored" data-anchor-id="prediction-task">Prediction Task</h2>
 <p>The modelling objective is to predict hourly pedestrian demand (<code>Total_of_Directions</code>) for individual sensor locations using temporal and location information.</p>
 <p>To better represent a real forecasting scenario, observations are split chronologically rather than randomly. Models were trained using January–July 2026 observations and evaluated on unseen observations from 1–13 August 2026. The incomplete observations from 14 August were excluded from model evaluation.</p>
-<div id="db97edaf" class="cell" data-execution_count="12">
+<div id="9ebb4b01" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select features for modelling</span></span>
@@ -3290,7 +3290,7 @@ Testing period:
 <section id="baseline-model" class="level2">
 <h2 class="anchored" data-anchor-id="baseline-model">Baseline Model</h2>
 <p>A baseline model provides a simple benchmark against which the machine-learning models can be evaluated. The baseline predicts the mean pedestrian demand observed in the training data for every test observation.</p>
-<div id="923fe8f1" class="cell" data-execution_count="13">
+<div id="ab256e96" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error, mean_squared_error, r2_score</span>
@@ -3321,7 +3321,7 @@ Baseline R²: -0.001</code></pre>
 <h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
 <p>Linear regression provides an interpretable first model for estimating pedestrian demand.</p>
 <p>Sensor location is treated as a categorical variable rather than a numerical quantity, since <code>Location_ID</code> represents categories rather than a continuous measurement.</p>
-<div id="cc472ba4" class="cell" data-execution_count="14">
+<div id="6ee63aa3" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
@@ -3388,7 +3388,7 @@ Linear Regression R²: 0.406</code></pre>
 <section id="random-forest" class="level2">
 <h2 class="anchored" data-anchor-id="random-forest">Random Forest</h2>
 <p>The Random Forest model is used to capture nonlinear relationships and interactions between temporal and location features that may not be adequately represented by linear regression.</p>
-<div id="3991ff8e" class="cell" data-execution_count="15">
+<div id="1e898448" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
@@ -3433,7 +3433,7 @@ Random Forest R²: 0.745</code></pre>
 <section id="gradient-boosting" class="level2">
 <h2 class="anchored" data-anchor-id="gradient-boosting">Gradient Boosting</h2>
 <p>Gradient boosting is evaluated as a flexible nonlinear model capable of capturing complex interactions between location and temporal features.</p>
-<div id="1d6a0a91" class="cell" data-execution_count="16">
+<div id="70fa03b0" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> HistGradientBoostingRegressor</span>
@@ -3479,7 +3479,7 @@ Gradient Boosting R²: 0.895</code></pre>
 <section id="model-comparison" class="level2">
 <h2 class="anchored" data-anchor-id="model-comparison">Model Comparison</h2>
 <p>The models are compared using performance on the unseen August 2026 test period. Lower MAE and RMSE indicate smaller prediction errors, while higher R² indicates that more variation in pedestrian demand is explained by the model.</p>
-<div id="083f059c" class="cell" data-execution_count="17">
+<div id="7841bcc5" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create model comparison table</span></span>
@@ -3568,7 +3568,7 @@ Gradient Boosting R²: 0.895</code></pre>
 </div>
 <section id="model-performance-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="model-performance-comparison">Model Performance Comparison</h3>
-<div id="4c022aca" class="cell" data-fig-height="5" data-fig-width="8" data-execution_count="18">
+<div id="247b34af" class="cell" data-fig-height="5" data-fig-width="8" data-execution_count="18">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>model_names <span class="op">=</span> [</span>
@@ -3603,7 +3603,8 @@ Gradient Boosting R²: 0.895</code></pre>
 <span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">&quot;figures/model_performance.png&quot;</span>, dpi<span class="op">=</span><span class="dv">200</span>, bbox_inches<span class="op">=</span><span class="st">&quot;tight&quot;</span>)</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -3619,7 +3620,7 @@ Gradient Boosting R²: 0.895</code></pre>
 <section id="actual-vs-predicted-demand" class="level2">
 <h2 class="anchored" data-anchor-id="actual-vs-predicted-demand">Actual vs Predicted Demand</h2>
 <p>The final Gradient Boosting model is evaluated by comparing predicted pedestrian counts with the actual observations in the unseen test period.</p>
-<div id="a37d8b1c" class="cell" data-execution_count="19">
+<div id="82001298" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create prediction results</span></span>
@@ -3644,7 +3645,7 @@ Gradient Boosting R²: 0.895</code></pre>
 <p>Predictions generally track observed pedestrian demand closely, consistent with the model’s R² of 0.895. Prediction errors become more pronounced at unusually high pedestrian volumes, indicating that extreme demand spikes are more difficult to forecast from location and temporal features alone.</p>
 <section id="prediction-accuracy" class="level3">
 <h3 class="anchored" data-anchor-id="prediction-accuracy">Prediction Accuracy</h3>
-<div id="de54b0f5" class="cell" data-execution_count="20">
+<div id="e09d34e8" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">6</span>))</span>
@@ -3672,7 +3673,7 @@ Gradient Boosting R²: 0.895</code></pre>
 <span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&quot;Actual Pedestrian Count&quot;</span>)</span>
 <span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&quot;Predicted Pedestrian Count&quot;</span>)</span>
 <span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">&quot;figures/actual_vs_predicted.png&quot;</span>, dpi<span class="op">=</span><span class="dv">200</span>, bbox_inches<span class="op">=</span><span class="st">&quot;tight&quot;</span>)</span>
 <span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
@@ -3691,7 +3692,7 @@ Gradient Boosting R²: 0.895</code></pre>
 <section id="permutation-feature-importance" class="level3">
 <h3 class="anchored" data-anchor-id="permutation-feature-importance">Permutation Feature Importance</h3>
 <p>Permutation importance is used to assess how strongly each feature contributes to predictive performance. Each feature is randomly shuffled while the remaining features are held unchanged, and the resulting deterioration in model performance is measured.</p>
-<div id="a8245766" class="cell" data-execution_count="21">
+<div id="6289f934" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span>
@@ -3758,7 +3759,7 @@ Gradient Boosting R²: 0.895</code></pre>
 </div>
 </div>
 </div>
-<div id="98626043" class="cell" data-execution_count="22">
+<div id="c52b4af8" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot feature importance</span></span>
@@ -3792,7 +3793,7 @@ Gradient Boosting R²: 0.895</code></pre>
 <p>Aggregate performance metrics can conceal important model weaknesses. Prediction errors are therefore examined across individual observations to identify conditions under which the model performs poorly.</p>
 <section id="largest-prediction-errors" class="level3">
 <h3 class="anchored" data-anchor-id="largest-prediction-errors">Largest Prediction Errors</h3>
-<div id="1ef8422e" class="cell" data-execution_count="23">
+<div id="4a2e7ac3" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the 8 largest prediction errors</span></span>
@@ -3914,7 +3915,7 @@ Gradient Boosting R²: 0.895</code></pre>
 <section id="prediction-error-by-date" class="level3">
 <h3 class="anchored" data-anchor-id="prediction-error-by-date">Prediction Error by Date</h3>
 <p>Average model error is examined across the test period to identify dates on which pedestrian behaviour deviated most strongly from historical patterns.</p>
-<div id="e645157d" class="cell" data-execution_count="24">
+<div id="cc371c0c" class="cell" data-execution_count="24">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate prediction error by date</span></span>
@@ -3942,7 +3943,7 @@ Gradient Boosting R²: 0.895</code></pre>
 Name: Absolute_Error, dtype: float64</code></pre>
 </div>
 </div>
-<div id="028c42ec" class="cell" data-execution_count="25">
+<div id="72203d78" class="cell" data-execution_count="25">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot average error across the test period</span></span>
@@ -3981,7 +3982,7 @@ Name: Absolute_Error, dtype: float64</code></pre>
 <h3 class="anchored" data-anchor-id="cyclical-time-features">Cyclical Time Features</h3>
 <p>Time variables have a cyclical structure that is not represented by their raw numerical values. For example, 23:00 and 00:00 are adjacent hours despite appearing numerically far apart.</p>
 <p>Sine and cosine transformations are therefore used to represent hour of day and day of week as cyclical features.</p>
-<div id="86ab4f71" class="cell" data-execution_count="26">
+<div id="76a25e4f" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create cyclical time features</span></span>
@@ -4074,7 +4075,7 @@ Name: Absolute_Error, dtype: float64</code></pre>
 <section id="refined-gradient-boosting-model" class="level3">
 <h3 class="anchored" data-anchor-id="refined-gradient-boosting-model">Refined Gradient Boosting Model</h3>
 <p>The refined model removes the redundant weekend indicator and replaces raw hour and day-of-week variables with cyclical representations.</p>
-<div id="ca7e94d9" class="cell" data-execution_count="27">
+<div id="9daf810b" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>refined_features <span class="op">=</span> [</span>
@@ -4864,7 +4865,7 @@ R²: 0.899</code></pre>
 <span id="cb40-195"><a href="#cb40-195" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">24</span>))</span>
 <span id="cb40-196"><a href="#cb40-196" aria-hidden="true" tabindex="-1"></a>plt.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb40-197"><a href="#cb40-197" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb40-198"><a href="#cb40-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-198"><a href="#cb40-198" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">&quot;figures/hourly_demand.png&quot;</span>, dpi<span class="op">=</span><span class="dv">200</span>, bbox_inches<span class="op">=</span><span class="st">&quot;tight&quot;</span>)</span>
 <span id="cb40-199"><a href="#cb40-199" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
 <span id="cb40-200"><a href="#cb40-200" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb40-201"><a href="#cb40-201" aria-hidden="true" tabindex="-1"></a>Pedestrian demand displays a strong time-of-day pattern. Activity increases sharply during the morning, remains elevated throughout the middle of the day, and reaches its highest average level at approximately 5 PM. The pronounced afternoon peak suggests that time of day is likely to be an important predictor of pedestrian demand.</span>
@@ -5366,355 +5367,356 @@ R²: 0.899</code></pre>
 <span id="cb40-723"><a href="#cb40-723" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-724"><a href="#cb40-724" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb40-725"><a href="#cb40-725" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb40-726"><a href="#cb40-726" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb40-727"><a href="#cb40-727" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-728"><a href="#cb40-728" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-729"><a href="#cb40-729" aria-hidden="true" tabindex="-1"></a>Gradient boosting reduced mean absolute error from 393.16 pedestrians per sensor-hour for the baseline to 98.14, representing an approximately 75% reduction in MAE.</span>
-<span id="cb40-730"><a href="#cb40-730" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-731"><a href="#cb40-731" aria-hidden="true" tabindex="-1"></a><span class="fu">## Actual vs Predicted Demand</span></span>
-<span id="cb40-732"><a href="#cb40-732" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-733"><a href="#cb40-733" aria-hidden="true" tabindex="-1"></a>The final Gradient Boosting model is evaluated by comparing predicted pedestrian counts with the actual observations in the unseen test period.</span>
-<span id="cb40-734"><a href="#cb40-734" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-737"><a href="#cb40-737" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-738"><a href="#cb40-738" aria-hidden="true" tabindex="-1"></a><span class="co"># Create prediction results</span></span>
-<span id="cb40-739"><a href="#cb40-739" aria-hidden="true" tabindex="-1"></a>prediction_results <span class="op">=</span> test[</span>
-<span id="cb40-740"><a href="#cb40-740" aria-hidden="true" tabindex="-1"></a>    [</span>
-<span id="cb40-741"><a href="#cb40-741" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Sensing_Date&quot;</span>,</span>
-<span id="cb40-742"><a href="#cb40-742" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;HourDay&quot;</span>,</span>
-<span id="cb40-743"><a href="#cb40-743" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Location_ID&quot;</span>,</span>
-<span id="cb40-744"><a href="#cb40-744" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Sensor_Description&quot;</span>,</span>
-<span id="cb40-745"><a href="#cb40-745" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Total_of_Directions&quot;</span></span>
-<span id="cb40-746"><a href="#cb40-746" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb40-747"><a href="#cb40-747" aria-hidden="true" tabindex="-1"></a>].copy()</span>
-<span id="cb40-748"><a href="#cb40-748" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-749"><a href="#cb40-749" aria-hidden="true" tabindex="-1"></a>prediction_results[<span class="st">&quot;Predicted_Demand&quot;</span>] <span class="op">=</span> gb_predictions</span>
-<span id="cb40-750"><a href="#cb40-750" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-751"><a href="#cb40-751" aria-hidden="true" tabindex="-1"></a>prediction_results[<span class="st">&quot;Absolute_Error&quot;</span>] <span class="op">=</span> <span class="bu">abs</span>(</span>
-<span id="cb40-752"><a href="#cb40-752" aria-hidden="true" tabindex="-1"></a>    prediction_results[<span class="st">&quot;Total_of_Directions&quot;</span>]</span>
-<span id="cb40-753"><a href="#cb40-753" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> prediction_results[<span class="st">&quot;Predicted_Demand&quot;</span>]</span>
-<span id="cb40-754"><a href="#cb40-754" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-755"><a href="#cb40-755" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-756"><a href="#cb40-756" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-757"><a href="#cb40-757" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-758"><a href="#cb40-758" aria-hidden="true" tabindex="-1"></a>Predictions generally track observed pedestrian demand closely, consistent with the model&#39;s R² of 0.895. Prediction errors become more pronounced at unusually high pedestrian volumes, indicating that extreme demand spikes are more difficult to forecast from location and temporal features alone.</span>
-<span id="cb40-759"><a href="#cb40-759" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-760"><a href="#cb40-760" aria-hidden="true" tabindex="-1"></a><span class="fu">### Prediction Accuracy</span></span>
-<span id="cb40-761"><a href="#cb40-761" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-764"><a href="#cb40-764" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-765"><a href="#cb40-765" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">6</span>))</span>
-<span id="cb40-766"><a href="#cb40-766" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-767"><a href="#cb40-767" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
-<span id="cb40-768"><a href="#cb40-768" aria-hidden="true" tabindex="-1"></a>    prediction_results[<span class="st">&quot;Total_of_Directions&quot;</span>],</span>
-<span id="cb40-769"><a href="#cb40-769" aria-hidden="true" tabindex="-1"></a>    prediction_results[<span class="st">&quot;Predicted_Demand&quot;</span>],</span>
-<span id="cb40-770"><a href="#cb40-770" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.2</span>,</span>
-<span id="cb40-771"><a href="#cb40-771" aria-hidden="true" tabindex="-1"></a>    s<span class="op">=</span><span class="dv">10</span></span>
-<span id="cb40-772"><a href="#cb40-772" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-773"><a href="#cb40-773" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-774"><a href="#cb40-774" aria-hidden="true" tabindex="-1"></a><span class="co"># Perfect-prediction reference line</span></span>
-<span id="cb40-775"><a href="#cb40-775" aria-hidden="true" tabindex="-1"></a>max_value <span class="op">=</span> <span class="bu">max</span>(</span>
-<span id="cb40-776"><a href="#cb40-776" aria-hidden="true" tabindex="-1"></a>    prediction_results[<span class="st">&quot;Total_of_Directions&quot;</span>].<span class="bu">max</span>(),</span>
-<span id="cb40-777"><a href="#cb40-777" aria-hidden="true" tabindex="-1"></a>    prediction_results[<span class="st">&quot;Predicted_Demand&quot;</span>].<span class="bu">max</span>()</span>
-<span id="cb40-778"><a href="#cb40-778" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-779"><a href="#cb40-779" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-780"><a href="#cb40-780" aria-hidden="true" tabindex="-1"></a>plt.plot(</span>
-<span id="cb40-781"><a href="#cb40-781" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, max_value],</span>
+<span id="cb40-726"><a href="#cb40-726" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">&quot;figures/model_performance.png&quot;</span>, dpi<span class="op">=</span><span class="dv">200</span>, bbox_inches<span class="op">=</span><span class="st">&quot;tight&quot;</span>)</span>
+<span id="cb40-727"><a href="#cb40-727" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb40-728"><a href="#cb40-728" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-729"><a href="#cb40-729" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-730"><a href="#cb40-730" aria-hidden="true" tabindex="-1"></a>Gradient boosting reduced mean absolute error from 393.16 pedestrians per sensor-hour for the baseline to 98.14, representing an approximately 75% reduction in MAE.</span>
+<span id="cb40-731"><a href="#cb40-731" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-732"><a href="#cb40-732" aria-hidden="true" tabindex="-1"></a><span class="fu">## Actual vs Predicted Demand</span></span>
+<span id="cb40-733"><a href="#cb40-733" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-734"><a href="#cb40-734" aria-hidden="true" tabindex="-1"></a>The final Gradient Boosting model is evaluated by comparing predicted pedestrian counts with the actual observations in the unseen test period.</span>
+<span id="cb40-735"><a href="#cb40-735" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-738"><a href="#cb40-738" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb40-739"><a href="#cb40-739" aria-hidden="true" tabindex="-1"></a><span class="co"># Create prediction results</span></span>
+<span id="cb40-740"><a href="#cb40-740" aria-hidden="true" tabindex="-1"></a>prediction_results <span class="op">=</span> test[</span>
+<span id="cb40-741"><a href="#cb40-741" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb40-742"><a href="#cb40-742" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Sensing_Date&quot;</span>,</span>
+<span id="cb40-743"><a href="#cb40-743" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;HourDay&quot;</span>,</span>
+<span id="cb40-744"><a href="#cb40-744" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Location_ID&quot;</span>,</span>
+<span id="cb40-745"><a href="#cb40-745" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Sensor_Description&quot;</span>,</span>
+<span id="cb40-746"><a href="#cb40-746" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Total_of_Directions&quot;</span></span>
+<span id="cb40-747"><a href="#cb40-747" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb40-748"><a href="#cb40-748" aria-hidden="true" tabindex="-1"></a>].copy()</span>
+<span id="cb40-749"><a href="#cb40-749" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-750"><a href="#cb40-750" aria-hidden="true" tabindex="-1"></a>prediction_results[<span class="st">&quot;Predicted_Demand&quot;</span>] <span class="op">=</span> gb_predictions</span>
+<span id="cb40-751"><a href="#cb40-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-752"><a href="#cb40-752" aria-hidden="true" tabindex="-1"></a>prediction_results[<span class="st">&quot;Absolute_Error&quot;</span>] <span class="op">=</span> <span class="bu">abs</span>(</span>
+<span id="cb40-753"><a href="#cb40-753" aria-hidden="true" tabindex="-1"></a>    prediction_results[<span class="st">&quot;Total_of_Directions&quot;</span>]</span>
+<span id="cb40-754"><a href="#cb40-754" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> prediction_results[<span class="st">&quot;Predicted_Demand&quot;</span>]</span>
+<span id="cb40-755"><a href="#cb40-755" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-756"><a href="#cb40-756" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-757"><a href="#cb40-757" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-758"><a href="#cb40-758" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-759"><a href="#cb40-759" aria-hidden="true" tabindex="-1"></a>Predictions generally track observed pedestrian demand closely, consistent with the model&#39;s R² of 0.895. Prediction errors become more pronounced at unusually high pedestrian volumes, indicating that extreme demand spikes are more difficult to forecast from location and temporal features alone.</span>
+<span id="cb40-760"><a href="#cb40-760" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-761"><a href="#cb40-761" aria-hidden="true" tabindex="-1"></a><span class="fu">### Prediction Accuracy</span></span>
+<span id="cb40-762"><a href="#cb40-762" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-765"><a href="#cb40-765" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb40-766"><a href="#cb40-766" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">6</span>))</span>
+<span id="cb40-767"><a href="#cb40-767" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-768"><a href="#cb40-768" aria-hidden="true" tabindex="-1"></a>plt.scatter(</span>
+<span id="cb40-769"><a href="#cb40-769" aria-hidden="true" tabindex="-1"></a>    prediction_results[<span class="st">&quot;Total_of_Directions&quot;</span>],</span>
+<span id="cb40-770"><a href="#cb40-770" aria-hidden="true" tabindex="-1"></a>    prediction_results[<span class="st">&quot;Predicted_Demand&quot;</span>],</span>
+<span id="cb40-771"><a href="#cb40-771" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb40-772"><a href="#cb40-772" aria-hidden="true" tabindex="-1"></a>    s<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb40-773"><a href="#cb40-773" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-774"><a href="#cb40-774" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-775"><a href="#cb40-775" aria-hidden="true" tabindex="-1"></a><span class="co"># Perfect-prediction reference line</span></span>
+<span id="cb40-776"><a href="#cb40-776" aria-hidden="true" tabindex="-1"></a>max_value <span class="op">=</span> <span class="bu">max</span>(</span>
+<span id="cb40-777"><a href="#cb40-777" aria-hidden="true" tabindex="-1"></a>    prediction_results[<span class="st">&quot;Total_of_Directions&quot;</span>].<span class="bu">max</span>(),</span>
+<span id="cb40-778"><a href="#cb40-778" aria-hidden="true" tabindex="-1"></a>    prediction_results[<span class="st">&quot;Predicted_Demand&quot;</span>].<span class="bu">max</span>()</span>
+<span id="cb40-779"><a href="#cb40-779" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-780"><a href="#cb40-780" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-781"><a href="#cb40-781" aria-hidden="true" tabindex="-1"></a>plt.plot(</span>
 <span id="cb40-782"><a href="#cb40-782" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, max_value],</span>
-<span id="cb40-783"><a href="#cb40-783" aria-hidden="true" tabindex="-1"></a>    linestyle<span class="op">=</span><span class="st">&quot;--&quot;</span></span>
-<span id="cb40-784"><a href="#cb40-784" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-785"><a href="#cb40-785" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-786"><a href="#cb40-786" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Actual vs Predicted Pedestrian Demand&quot;</span>)</span>
-<span id="cb40-787"><a href="#cb40-787" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&quot;Actual Pedestrian Count&quot;</span>)</span>
-<span id="cb40-788"><a href="#cb40-788" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&quot;Predicted Pedestrian Count&quot;</span>)</span>
-<span id="cb40-789"><a href="#cb40-789" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb40-790"><a href="#cb40-790" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-791"><a href="#cb40-791" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb40-792"><a href="#cb40-792" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-793"><a href="#cb40-793" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-794"><a href="#cb40-794" aria-hidden="true" tabindex="-1"></a>Predicted demand generally aligns closely with observed demand, consistent with the model&#39;s R² of 0.895. However, errors increase for some extreme high-demand observations, where the model tends to underestimate unusually large pedestrian volumes. This indicates that location and temporal patterns explain regular pedestrian activity well but do not fully capture abnormal demand spikes.</span>
-<span id="cb40-795"><a href="#cb40-795" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-796"><a href="#cb40-796" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Interpretation</span></span>
-<span id="cb40-797"><a href="#cb40-797" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-798"><a href="#cb40-798" aria-hidden="true" tabindex="-1"></a><span class="fu">### Permutation Feature Importance</span></span>
-<span id="cb40-799"><a href="#cb40-799" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-800"><a href="#cb40-800" aria-hidden="true" tabindex="-1"></a>Permutation importance is used to assess how strongly each feature contributes to predictive performance. Each feature is randomly shuffled while the remaining features are held unchanged, and the resulting deterioration in model performance is measured.</span>
-<span id="cb40-801"><a href="#cb40-801" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-804"><a href="#cb40-804" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-805"><a href="#cb40-805" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span>
-<span id="cb40-806"><a href="#cb40-806" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-807"><a href="#cb40-807" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate permutation importance on the unseen test data</span></span>
-<span id="cb40-808"><a href="#cb40-808" aria-hidden="true" tabindex="-1"></a>importance <span class="op">=</span> permutation_importance(</span>
-<span id="cb40-809"><a href="#cb40-809" aria-hidden="true" tabindex="-1"></a>    gradient_boosting,</span>
-<span id="cb40-810"><a href="#cb40-810" aria-hidden="true" tabindex="-1"></a>    X_test,</span>
-<span id="cb40-811"><a href="#cb40-811" aria-hidden="true" tabindex="-1"></a>    y_test,</span>
-<span id="cb40-812"><a href="#cb40-812" aria-hidden="true" tabindex="-1"></a>    scoring<span class="op">=</span><span class="st">&quot;neg_mean_absolute_error&quot;</span>,</span>
-<span id="cb40-813"><a href="#cb40-813" aria-hidden="true" tabindex="-1"></a>    n_repeats<span class="op">=</span><span class="dv">5</span>,</span>
-<span id="cb40-814"><a href="#cb40-814" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span>,</span>
-<span id="cb40-815"><a href="#cb40-815" aria-hidden="true" tabindex="-1"></a>    n_jobs<span class="op">=-</span><span class="dv">1</span></span>
-<span id="cb40-816"><a href="#cb40-816" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-817"><a href="#cb40-817" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-818"><a href="#cb40-818" aria-hidden="true" tabindex="-1"></a>feature_importance <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb40-819"><a href="#cb40-819" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Feature&quot;</span>: features,</span>
-<span id="cb40-820"><a href="#cb40-820" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Importance&quot;</span>: importance.importances_mean</span>
-<span id="cb40-821"><a href="#cb40-821" aria-hidden="true" tabindex="-1"></a>}).sort_values(<span class="st">&quot;Importance&quot;</span>, ascending<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb40-822"><a href="#cb40-822" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-823"><a href="#cb40-823" aria-hidden="true" tabindex="-1"></a>feature_importance</span>
-<span id="cb40-824"><a href="#cb40-824" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-825"><a href="#cb40-825" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-828"><a href="#cb40-828" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-829"><a href="#cb40-829" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot feature importance</span></span>
-<span id="cb40-830"><a href="#cb40-830" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
-<span id="cb40-831"><a href="#cb40-831" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-832"><a href="#cb40-832" aria-hidden="true" tabindex="-1"></a>plt.barh(</span>
-<span id="cb40-833"><a href="#cb40-833" aria-hidden="true" tabindex="-1"></a>    feature_importance[<span class="st">&quot;Feature&quot;</span>],</span>
-<span id="cb40-834"><a href="#cb40-834" aria-hidden="true" tabindex="-1"></a>    feature_importance[<span class="st">&quot;Importance&quot;</span>]</span>
-<span id="cb40-835"><a href="#cb40-835" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-836"><a href="#cb40-836" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-837"><a href="#cb40-837" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Permutation Feature Importance&quot;</span>)</span>
-<span id="cb40-838"><a href="#cb40-838" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&quot;Increase in MAE When Feature Is Shuffled&quot;</span>)</span>
-<span id="cb40-839"><a href="#cb40-839" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&quot;Feature&quot;</span>)</span>
-<span id="cb40-840"><a href="#cb40-840" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb40-841"><a href="#cb40-841" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-842"><a href="#cb40-842" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb40-843"><a href="#cb40-843" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-844"><a href="#cb40-844" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-845"><a href="#cb40-845" aria-hidden="true" tabindex="-1"></a>Location and hour of day are the dominant predictors of pedestrian demand, with permutation importance substantially higher than the remaining features. Day of week provides additional predictive information, while the weekend indicator contributes almost no additional information once day of week is included. Month has zero measurable permutation importance in this evaluation because the test period contains only August observations, meaning the feature has no variation within the test set.</span>
-<span id="cb40-846"><a href="#cb40-846" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-783"><a href="#cb40-783" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">0</span>, max_value],</span>
+<span id="cb40-784"><a href="#cb40-784" aria-hidden="true" tabindex="-1"></a>    linestyle<span class="op">=</span><span class="st">&quot;--&quot;</span></span>
+<span id="cb40-785"><a href="#cb40-785" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-786"><a href="#cb40-786" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-787"><a href="#cb40-787" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Actual vs Predicted Pedestrian Demand&quot;</span>)</span>
+<span id="cb40-788"><a href="#cb40-788" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&quot;Actual Pedestrian Count&quot;</span>)</span>
+<span id="cb40-789"><a href="#cb40-789" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&quot;Predicted Pedestrian Count&quot;</span>)</span>
+<span id="cb40-790"><a href="#cb40-790" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb40-791"><a href="#cb40-791" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">&quot;figures/actual_vs_predicted.png&quot;</span>, dpi<span class="op">=</span><span class="dv">200</span>, bbox_inches<span class="op">=</span><span class="st">&quot;tight&quot;</span>)</span>
+<span id="cb40-792"><a href="#cb40-792" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb40-793"><a href="#cb40-793" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-794"><a href="#cb40-794" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-795"><a href="#cb40-795" aria-hidden="true" tabindex="-1"></a>Predicted demand generally aligns closely with observed demand, consistent with the model&#39;s R² of 0.895. However, errors increase for some extreme high-demand observations, where the model tends to underestimate unusually large pedestrian volumes. This indicates that location and temporal patterns explain regular pedestrian activity well but do not fully capture abnormal demand spikes.</span>
+<span id="cb40-796"><a href="#cb40-796" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-797"><a href="#cb40-797" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Interpretation</span></span>
+<span id="cb40-798"><a href="#cb40-798" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-799"><a href="#cb40-799" aria-hidden="true" tabindex="-1"></a><span class="fu">### Permutation Feature Importance</span></span>
+<span id="cb40-800"><a href="#cb40-800" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-801"><a href="#cb40-801" aria-hidden="true" tabindex="-1"></a>Permutation importance is used to assess how strongly each feature contributes to predictive performance. Each feature is randomly shuffled while the remaining features are held unchanged, and the resulting deterioration in model performance is measured.</span>
+<span id="cb40-802"><a href="#cb40-802" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-805"><a href="#cb40-805" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb40-806"><a href="#cb40-806" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span>
+<span id="cb40-807"><a href="#cb40-807" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-808"><a href="#cb40-808" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate permutation importance on the unseen test data</span></span>
+<span id="cb40-809"><a href="#cb40-809" aria-hidden="true" tabindex="-1"></a>importance <span class="op">=</span> permutation_importance(</span>
+<span id="cb40-810"><a href="#cb40-810" aria-hidden="true" tabindex="-1"></a>    gradient_boosting,</span>
+<span id="cb40-811"><a href="#cb40-811" aria-hidden="true" tabindex="-1"></a>    X_test,</span>
+<span id="cb40-812"><a href="#cb40-812" aria-hidden="true" tabindex="-1"></a>    y_test,</span>
+<span id="cb40-813"><a href="#cb40-813" aria-hidden="true" tabindex="-1"></a>    scoring<span class="op">=</span><span class="st">&quot;neg_mean_absolute_error&quot;</span>,</span>
+<span id="cb40-814"><a href="#cb40-814" aria-hidden="true" tabindex="-1"></a>    n_repeats<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb40-815"><a href="#cb40-815" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span>,</span>
+<span id="cb40-816"><a href="#cb40-816" aria-hidden="true" tabindex="-1"></a>    n_jobs<span class="op">=-</span><span class="dv">1</span></span>
+<span id="cb40-817"><a href="#cb40-817" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-818"><a href="#cb40-818" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-819"><a href="#cb40-819" aria-hidden="true" tabindex="-1"></a>feature_importance <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb40-820"><a href="#cb40-820" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Feature&quot;</span>: features,</span>
+<span id="cb40-821"><a href="#cb40-821" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Importance&quot;</span>: importance.importances_mean</span>
+<span id="cb40-822"><a href="#cb40-822" aria-hidden="true" tabindex="-1"></a>}).sort_values(<span class="st">&quot;Importance&quot;</span>, ascending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb40-823"><a href="#cb40-823" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-824"><a href="#cb40-824" aria-hidden="true" tabindex="-1"></a>feature_importance</span>
+<span id="cb40-825"><a href="#cb40-825" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-826"><a href="#cb40-826" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-829"><a href="#cb40-829" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb40-830"><a href="#cb40-830" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot feature importance</span></span>
+<span id="cb40-831"><a href="#cb40-831" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb40-832"><a href="#cb40-832" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-833"><a href="#cb40-833" aria-hidden="true" tabindex="-1"></a>plt.barh(</span>
+<span id="cb40-834"><a href="#cb40-834" aria-hidden="true" tabindex="-1"></a>    feature_importance[<span class="st">&quot;Feature&quot;</span>],</span>
+<span id="cb40-835"><a href="#cb40-835" aria-hidden="true" tabindex="-1"></a>    feature_importance[<span class="st">&quot;Importance&quot;</span>]</span>
+<span id="cb40-836"><a href="#cb40-836" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-837"><a href="#cb40-837" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-838"><a href="#cb40-838" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Permutation Feature Importance&quot;</span>)</span>
+<span id="cb40-839"><a href="#cb40-839" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&quot;Increase in MAE When Feature Is Shuffled&quot;</span>)</span>
+<span id="cb40-840"><a href="#cb40-840" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&quot;Feature&quot;</span>)</span>
+<span id="cb40-841"><a href="#cb40-841" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb40-842"><a href="#cb40-842" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-843"><a href="#cb40-843" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb40-844"><a href="#cb40-844" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-845"><a href="#cb40-845" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-846"><a href="#cb40-846" aria-hidden="true" tabindex="-1"></a>Location and hour of day are the dominant predictors of pedestrian demand, with permutation importance substantially higher than the remaining features. Day of week provides additional predictive information, while the weekend indicator contributes almost no additional information once day of week is included. Month has zero measurable permutation importance in this evaluation because the test period contains only August observations, meaning the feature has no variation within the test set.</span>
 <span id="cb40-847"><a href="#cb40-847" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-848"><a href="#cb40-848" aria-hidden="true" tabindex="-1"></a><span class="fu">## Error Analysis</span></span>
-<span id="cb40-849"><a href="#cb40-849" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-850"><a href="#cb40-850" aria-hidden="true" tabindex="-1"></a>Aggregate performance metrics can conceal important model weaknesses. Prediction errors are therefore examined across individual observations to identify conditions under which the model performs poorly.</span>
-<span id="cb40-851"><a href="#cb40-851" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-852"><a href="#cb40-852" aria-hidden="true" tabindex="-1"></a><span class="fu">### Largest Prediction Errors</span></span>
-<span id="cb40-853"><a href="#cb40-853" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-856"><a href="#cb40-856" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-857"><a href="#cb40-857" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the 8 largest prediction errors</span></span>
-<span id="cb40-858"><a href="#cb40-858" aria-hidden="true" tabindex="-1"></a>largest_errors <span class="op">=</span> (</span>
-<span id="cb40-859"><a href="#cb40-859" aria-hidden="true" tabindex="-1"></a>    prediction_results</span>
-<span id="cb40-860"><a href="#cb40-860" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">&quot;Absolute_Error&quot;</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb40-861"><a href="#cb40-861" aria-hidden="true" tabindex="-1"></a>    [</span>
-<span id="cb40-862"><a href="#cb40-862" aria-hidden="true" tabindex="-1"></a>        [</span>
-<span id="cb40-863"><a href="#cb40-863" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Sensing_Date&quot;</span>,</span>
-<span id="cb40-864"><a href="#cb40-864" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;HourDay&quot;</span>,</span>
-<span id="cb40-865"><a href="#cb40-865" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Sensor_Description&quot;</span>,</span>
-<span id="cb40-866"><a href="#cb40-866" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Total_of_Directions&quot;</span>,</span>
-<span id="cb40-867"><a href="#cb40-867" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Predicted_Demand&quot;</span>,</span>
-<span id="cb40-868"><a href="#cb40-868" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Absolute_Error&quot;</span></span>
-<span id="cb40-869"><a href="#cb40-869" aria-hidden="true" tabindex="-1"></a>        ]</span>
-<span id="cb40-870"><a href="#cb40-870" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb40-871"><a href="#cb40-871" aria-hidden="true" tabindex="-1"></a>    .head(<span class="dv">8</span>)</span>
-<span id="cb40-872"><a href="#cb40-872" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-873"><a href="#cb40-873" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-874"><a href="#cb40-874" aria-hidden="true" tabindex="-1"></a>largest_errors.<span class="bu">round</span>(<span class="dv">1</span>)</span>
-<span id="cb40-875"><a href="#cb40-875" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-876"><a href="#cb40-876" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-877"><a href="#cb40-877" aria-hidden="true" tabindex="-1"></a>The largest prediction errors are concentrated around specific dates and locations rather than being evenly distributed across the test period. Several extreme underpredictions occurred around RMIT and Swanston Street on 9 August 2026, where observed pedestrian volumes were several times greater than the model&#39;s prediction. This suggests that unusual events or other external factors can create substantial demand shocks that are not captured by the current temporal and location features.</span>
-<span id="cb40-878"><a href="#cb40-878" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-879"><a href="#cb40-879" aria-hidden="true" tabindex="-1"></a><span class="fu">### Prediction Error by Date</span></span>
-<span id="cb40-880"><a href="#cb40-880" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-881"><a href="#cb40-881" aria-hidden="true" tabindex="-1"></a>Average model error is examined across the test period to identify dates on which pedestrian behaviour deviated most strongly from historical patterns.</span>
-<span id="cb40-882"><a href="#cb40-882" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-885"><a href="#cb40-885" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-886"><a href="#cb40-886" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate prediction error by date</span></span>
-<span id="cb40-887"><a href="#cb40-887" aria-hidden="true" tabindex="-1"></a>error_by_date <span class="op">=</span> (</span>
-<span id="cb40-888"><a href="#cb40-888" aria-hidden="true" tabindex="-1"></a>    prediction_results</span>
-<span id="cb40-889"><a href="#cb40-889" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">&quot;Sensing_Date&quot;</span>)[<span class="st">&quot;Absolute_Error&quot;</span>]</span>
-<span id="cb40-890"><a href="#cb40-890" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
-<span id="cb40-891"><a href="#cb40-891" aria-hidden="true" tabindex="-1"></a>    .sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb40-892"><a href="#cb40-892" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-893"><a href="#cb40-893" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-894"><a href="#cb40-894" aria-hidden="true" tabindex="-1"></a>error_by_date.head(<span class="dv">10</span>)</span>
-<span id="cb40-895"><a href="#cb40-895" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-896"><a href="#cb40-896" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-899"><a href="#cb40-899" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-900"><a href="#cb40-900" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot average error across the test period</span></span>
-<span id="cb40-901"><a href="#cb40-901" aria-hidden="true" tabindex="-1"></a>error_by_date_plot <span class="op">=</span> error_by_date.sort_index()</span>
-<span id="cb40-902"><a href="#cb40-902" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-903"><a href="#cb40-903" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
-<span id="cb40-904"><a href="#cb40-904" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-905"><a href="#cb40-905" aria-hidden="true" tabindex="-1"></a>plt.plot(</span>
-<span id="cb40-906"><a href="#cb40-906" aria-hidden="true" tabindex="-1"></a>    error_by_date_plot.index,</span>
-<span id="cb40-907"><a href="#cb40-907" aria-hidden="true" tabindex="-1"></a>    error_by_date_plot.values,</span>
-<span id="cb40-908"><a href="#cb40-908" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="st">&quot;o&quot;</span></span>
-<span id="cb40-909"><a href="#cb40-909" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-910"><a href="#cb40-910" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-911"><a href="#cb40-911" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Average Prediction Error by Date&quot;</span>)</span>
-<span id="cb40-912"><a href="#cb40-912" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&quot;Date&quot;</span>)</span>
-<span id="cb40-913"><a href="#cb40-913" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&quot;Mean Absolute Error&quot;</span>)</span>
-<span id="cb40-914"><a href="#cb40-914" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb40-915"><a href="#cb40-915" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb40-916"><a href="#cb40-916" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-917"><a href="#cb40-917" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb40-918"><a href="#cb40-918" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-919"><a href="#cb40-919" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-920"><a href="#cb40-920" aria-hidden="true" tabindex="-1"></a>Prediction error varies across the August test period, with 9 August producing the highest average error (MAE ≈ 130). Examination of the largest individual errors shows that this deterioration is concentrated around unusually high pedestrian counts at locations including RMIT and Swanston Street. This suggests that the model captures regular mobility patterns effectively but is less accurate during unusual demand spikes. </span>
-<span id="cb40-921"><a href="#cb40-921" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-922"><a href="#cb40-922" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Refinement</span></span>
-<span id="cb40-923"><a href="#cb40-923" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-924"><a href="#cb40-924" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cyclical Time Features</span></span>
-<span id="cb40-925"><a href="#cb40-925" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-926"><a href="#cb40-926" aria-hidden="true" tabindex="-1"></a>Time variables have a cyclical structure that is not represented by their raw numerical values. For example, 23:00 and 00:00 are adjacent hours despite appearing numerically far apart.</span>
-<span id="cb40-927"><a href="#cb40-927" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-928"><a href="#cb40-928" aria-hidden="true" tabindex="-1"></a>Sine and cosine transformations are therefore used to represent hour of day and day of week as cyclical features.</span>
-<span id="cb40-929"><a href="#cb40-929" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-932"><a href="#cb40-932" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-933"><a href="#cb40-933" aria-hidden="true" tabindex="-1"></a><span class="co"># Create cyclical time features</span></span>
-<span id="cb40-934"><a href="#cb40-934" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;Hour_Sin&quot;</span>] <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> df[<span class="st">&quot;HourDay&quot;</span>] <span class="op">/</span> <span class="dv">24</span>)</span>
-<span id="cb40-935"><a href="#cb40-935" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;Hour_Cos&quot;</span>] <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> df[<span class="st">&quot;HourDay&quot;</span>] <span class="op">/</span> <span class="dv">24</span>)</span>
-<span id="cb40-936"><a href="#cb40-936" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-937"><a href="#cb40-937" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;Day_Sin&quot;</span>] <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> df[<span class="st">&quot;Day_Number&quot;</span>] <span class="op">/</span> <span class="dv">7</span>)</span>
-<span id="cb40-938"><a href="#cb40-938" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;Day_Cos&quot;</span>] <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> df[<span class="st">&quot;Day_Number&quot;</span>] <span class="op">/</span> <span class="dv">7</span>)</span>
-<span id="cb40-939"><a href="#cb40-939" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-940"><a href="#cb40-940" aria-hidden="true" tabindex="-1"></a>df[</span>
-<span id="cb40-941"><a href="#cb40-941" aria-hidden="true" tabindex="-1"></a>    [</span>
-<span id="cb40-942"><a href="#cb40-942" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;HourDay&quot;</span>,</span>
-<span id="cb40-943"><a href="#cb40-943" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Hour_Sin&quot;</span>,</span>
-<span id="cb40-944"><a href="#cb40-944" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Hour_Cos&quot;</span>,</span>
-<span id="cb40-945"><a href="#cb40-945" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Day_Number&quot;</span>,</span>
-<span id="cb40-946"><a href="#cb40-946" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Day_Sin&quot;</span>,</span>
-<span id="cb40-947"><a href="#cb40-947" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Day_Cos&quot;</span></span>
-<span id="cb40-948"><a href="#cb40-948" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb40-949"><a href="#cb40-949" aria-hidden="true" tabindex="-1"></a>].head()</span>
-<span id="cb40-950"><a href="#cb40-950" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-951"><a href="#cb40-951" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-952"><a href="#cb40-952" aria-hidden="true" tabindex="-1"></a><span class="fu">### Refined Gradient Boosting Model</span></span>
-<span id="cb40-953"><a href="#cb40-953" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-954"><a href="#cb40-954" aria-hidden="true" tabindex="-1"></a>The refined model removes the redundant weekend indicator and replaces raw hour and day-of-week variables with cyclical representations.</span>
-<span id="cb40-955"><a href="#cb40-955" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-958"><a href="#cb40-958" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb40-959"><a href="#cb40-959" aria-hidden="true" tabindex="-1"></a>refined_features <span class="op">=</span> [</span>
-<span id="cb40-960"><a href="#cb40-960" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Location_ID&quot;</span>,</span>
-<span id="cb40-961"><a href="#cb40-961" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Hour_Sin&quot;</span>,</span>
-<span id="cb40-962"><a href="#cb40-962" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Hour_Cos&quot;</span>,</span>
-<span id="cb40-963"><a href="#cb40-963" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Day_Sin&quot;</span>,</span>
-<span id="cb40-964"><a href="#cb40-964" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Day_Cos&quot;</span>,</span>
-<span id="cb40-965"><a href="#cb40-965" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Month&quot;</span></span>
-<span id="cb40-966"><a href="#cb40-966" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb40-967"><a href="#cb40-967" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-968"><a href="#cb40-968" aria-hidden="true" tabindex="-1"></a>X_refined <span class="op">=</span> df[refined_features]</span>
-<span id="cb40-969"><a href="#cb40-969" aria-hidden="true" tabindex="-1"></a>y_refined <span class="op">=</span> df[<span class="st">&quot;Total_of_Directions&quot;</span>]</span>
-<span id="cb40-970"><a href="#cb40-970" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-971"><a href="#cb40-971" aria-hidden="true" tabindex="-1"></a><span class="co"># Preserve chronological train/test split</span></span>
-<span id="cb40-972"><a href="#cb40-972" aria-hidden="true" tabindex="-1"></a>train_mask <span class="op">=</span> df[<span class="st">&quot;Sensing_Date&quot;</span>] <span class="op">&lt;</span> <span class="st">&quot;2026-08-01&quot;</span></span>
-<span id="cb40-973"><a href="#cb40-973" aria-hidden="true" tabindex="-1"></a>test_mask <span class="op">=</span> (</span>
-<span id="cb40-974"><a href="#cb40-974" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">&quot;Sensing_Date&quot;</span>] <span class="op">&gt;=</span> <span class="st">&quot;2026-08-01&quot;</span>) <span class="op">&amp;</span></span>
-<span id="cb40-975"><a href="#cb40-975" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">&quot;Sensing_Date&quot;</span>] <span class="op">&lt;=</span> <span class="st">&quot;2026-08-13&quot;</span>)</span>
-<span id="cb40-976"><a href="#cb40-976" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-977"><a href="#cb40-977" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-978"><a href="#cb40-978" aria-hidden="true" tabindex="-1"></a>X_train_refined <span class="op">=</span> X_refined[train_mask]</span>
-<span id="cb40-979"><a href="#cb40-979" aria-hidden="true" tabindex="-1"></a>X_test_refined <span class="op">=</span> X_refined[test_mask]</span>
-<span id="cb40-980"><a href="#cb40-980" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-981"><a href="#cb40-981" aria-hidden="true" tabindex="-1"></a>y_train_refined <span class="op">=</span> y_refined[train_mask]</span>
-<span id="cb40-982"><a href="#cb40-982" aria-hidden="true" tabindex="-1"></a>y_test_refined <span class="op">=</span> y_refined[test_mask]</span>
-<span id="cb40-983"><a href="#cb40-983" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-984"><a href="#cb40-984" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocess Location_ID as categorical</span></span>
-<span id="cb40-985"><a href="#cb40-985" aria-hidden="true" tabindex="-1"></a>refined_preprocessor <span class="op">=</span> ColumnTransformer(</span>
-<span id="cb40-986"><a href="#cb40-986" aria-hidden="true" tabindex="-1"></a>    transformers<span class="op">=</span>[</span>
-<span id="cb40-987"><a href="#cb40-987" aria-hidden="true" tabindex="-1"></a>        (</span>
-<span id="cb40-988"><a href="#cb40-988" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;location&quot;</span>,</span>
-<span id="cb40-989"><a href="#cb40-989" aria-hidden="true" tabindex="-1"></a>            OneHotEncoder(</span>
-<span id="cb40-990"><a href="#cb40-990" aria-hidden="true" tabindex="-1"></a>                handle_unknown<span class="op">=</span><span class="st">&quot;ignore&quot;</span>,</span>
-<span id="cb40-991"><a href="#cb40-991" aria-hidden="true" tabindex="-1"></a>                sparse_output<span class="op">=</span><span class="va">False</span></span>
-<span id="cb40-992"><a href="#cb40-992" aria-hidden="true" tabindex="-1"></a>            ),</span>
-<span id="cb40-993"><a href="#cb40-993" aria-hidden="true" tabindex="-1"></a>            [<span class="st">&quot;Location_ID&quot;</span>]</span>
-<span id="cb40-994"><a href="#cb40-994" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb40-995"><a href="#cb40-995" aria-hidden="true" tabindex="-1"></a>    ],</span>
-<span id="cb40-996"><a href="#cb40-996" aria-hidden="true" tabindex="-1"></a>    remainder<span class="op">=</span><span class="st">&quot;passthrough&quot;</span></span>
-<span id="cb40-997"><a href="#cb40-997" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-998"><a href="#cb40-998" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-999"><a href="#cb40-999" aria-hidden="true" tabindex="-1"></a><span class="co"># Build refined model</span></span>
-<span id="cb40-1000"><a href="#cb40-1000" aria-hidden="true" tabindex="-1"></a>refined_model <span class="op">=</span> Pipeline(</span>
-<span id="cb40-1001"><a href="#cb40-1001" aria-hidden="true" tabindex="-1"></a>    steps<span class="op">=</span>[</span>
-<span id="cb40-1002"><a href="#cb40-1002" aria-hidden="true" tabindex="-1"></a>        (<span class="st">&quot;preprocessor&quot;</span>, refined_preprocessor),</span>
-<span id="cb40-1003"><a href="#cb40-1003" aria-hidden="true" tabindex="-1"></a>        (</span>
-<span id="cb40-1004"><a href="#cb40-1004" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;model&quot;</span>,</span>
-<span id="cb40-1005"><a href="#cb40-1005" aria-hidden="true" tabindex="-1"></a>            HistGradientBoostingRegressor(</span>
-<span id="cb40-1006"><a href="#cb40-1006" aria-hidden="true" tabindex="-1"></a>                max_iter<span class="op">=</span><span class="dv">200</span>,</span>
-<span id="cb40-1007"><a href="#cb40-1007" aria-hidden="true" tabindex="-1"></a>                learning_rate<span class="op">=</span><span class="fl">0.1</span>,</span>
-<span id="cb40-1008"><a href="#cb40-1008" aria-hidden="true" tabindex="-1"></a>                max_leaf_nodes<span class="op">=</span><span class="dv">31</span>,</span>
-<span id="cb40-1009"><a href="#cb40-1009" aria-hidden="true" tabindex="-1"></a>                random_state<span class="op">=</span><span class="dv">42</span></span>
-<span id="cb40-1010"><a href="#cb40-1010" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb40-1011"><a href="#cb40-1011" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb40-1012"><a href="#cb40-1012" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb40-1013"><a href="#cb40-1013" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-1014"><a href="#cb40-1014" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1015"><a href="#cb40-1015" aria-hidden="true" tabindex="-1"></a><span class="co"># Train</span></span>
-<span id="cb40-1016"><a href="#cb40-1016" aria-hidden="true" tabindex="-1"></a>refined_model.fit(X_train_refined, y_train_refined)</span>
-<span id="cb40-1017"><a href="#cb40-1017" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1018"><a href="#cb40-1018" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict</span></span>
-<span id="cb40-1019"><a href="#cb40-1019" aria-hidden="true" tabindex="-1"></a>refined_predictions <span class="op">=</span> refined_model.predict(X_test_refined)</span>
-<span id="cb40-1020"><a href="#cb40-1020" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1021"><a href="#cb40-1021" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate</span></span>
-<span id="cb40-1022"><a href="#cb40-1022" aria-hidden="true" tabindex="-1"></a>refined_mae <span class="op">=</span> mean_absolute_error(</span>
-<span id="cb40-1023"><a href="#cb40-1023" aria-hidden="true" tabindex="-1"></a>    y_test_refined,</span>
-<span id="cb40-1024"><a href="#cb40-1024" aria-hidden="true" tabindex="-1"></a>    refined_predictions</span>
-<span id="cb40-1025"><a href="#cb40-1025" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-1026"><a href="#cb40-1026" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1027"><a href="#cb40-1027" aria-hidden="true" tabindex="-1"></a>refined_rmse <span class="op">=</span> np.sqrt(</span>
-<span id="cb40-1028"><a href="#cb40-1028" aria-hidden="true" tabindex="-1"></a>    mean_squared_error(</span>
-<span id="cb40-1029"><a href="#cb40-1029" aria-hidden="true" tabindex="-1"></a>        y_test_refined,</span>
-<span id="cb40-1030"><a href="#cb40-1030" aria-hidden="true" tabindex="-1"></a>        refined_predictions</span>
-<span id="cb40-1031"><a href="#cb40-1031" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb40-1032"><a href="#cb40-1032" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-1033"><a href="#cb40-1033" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1034"><a href="#cb40-1034" aria-hidden="true" tabindex="-1"></a>refined_r2 <span class="op">=</span> r2_score(</span>
-<span id="cb40-1035"><a href="#cb40-1035" aria-hidden="true" tabindex="-1"></a>    y_test_refined,</span>
-<span id="cb40-1036"><a href="#cb40-1036" aria-hidden="true" tabindex="-1"></a>    refined_predictions</span>
-<span id="cb40-1037"><a href="#cb40-1037" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-1038"><a href="#cb40-1038" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1039"><a href="#cb40-1039" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Original Gradient Boosting:&quot;</span>)</span>
-<span id="cb40-1040"><a href="#cb40-1040" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;MAE:&quot;</span>, <span class="bu">round</span>(gb_mae, <span class="dv">2</span>))</span>
-<span id="cb40-1041"><a href="#cb40-1041" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;RMSE:&quot;</span>, <span class="bu">round</span>(gb_rmse, <span class="dv">2</span>))</span>
-<span id="cb40-1042"><a href="#cb40-1042" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;R²:&quot;</span>, <span class="bu">round</span>(gb_r2, <span class="dv">3</span>))</span>
-<span id="cb40-1043"><a href="#cb40-1043" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1044"><a href="#cb40-1044" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Refined Gradient Boosting:&quot;</span>)</span>
-<span id="cb40-1045"><a href="#cb40-1045" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;MAE:&quot;</span>, <span class="bu">round</span>(refined_mae, <span class="dv">2</span>))</span>
-<span id="cb40-1046"><a href="#cb40-1046" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;RMSE:&quot;</span>, <span class="bu">round</span>(refined_rmse, <span class="dv">2</span>))</span>
-<span id="cb40-1047"><a href="#cb40-1047" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;R²:&quot;</span>, <span class="bu">round</span>(refined_r2, <span class="dv">3</span>))</span>
-<span id="cb40-1048"><a href="#cb40-1048" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb40-1049"><a href="#cb40-1049" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1050"><a href="#cb40-1050" aria-hidden="true" tabindex="-1"></a>Cyclical encoding produced only a marginal change in predictive performance. R² increased from 0.895 to 0.899 and RMSE decreased from 184.49 to 180.75, while MAE increased slightly from 98.14 to 101.29. This suggests that the original gradient boosting model was already capable of capturing much of the nonlinear temporal structure. Given its lower MAE and simpler feature representation, the original gradient boosting model is retained as the primary model.</span>
-<span id="cb40-1051"><a href="#cb40-1051" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1052"><a href="#cb40-1052" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Findings</span></span>
-<span id="cb40-1053"><a href="#cb40-1053" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1054"><a href="#cb40-1054" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Pedestrian demand is highly location-dependent.** Central-city locations including Flinders Lane–Swanston Street, Town Hall, Melbourne Central and Southbank Promenade recorded some of the highest average pedestrian volumes.</span>
-<span id="cb40-1055"><a href="#cb40-1055" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1056"><a href="#cb40-1056" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Time of day is a major driver of demand.** Activity rises sharply through the morning and remains elevated during the day, with clear differences between weekday and weekend profiles.</span>
-<span id="cb40-1057"><a href="#cb40-1057" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1058"><a href="#cb40-1058" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Nonlinear machine-learning models substantially improve forecasting.** Gradient Boosting achieved an MAE of 98.14 and R² of 0.895 on unseen observations from 1–13 August, reducing MAE by approximately 75% relative to the baseline.</span>
-<span id="cb40-1059"><a href="#cb40-1059" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1060"><a href="#cb40-1060" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Location and hour of day are the strongest predictive features.** Permutation importance showed substantially greater contributions from these variables than other temporal features.</span>
-<span id="cb40-1061"><a href="#cb40-1061" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1062"><a href="#cb40-1062" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Extreme demand spikes remain difficult to forecast.** The largest errors were concentrated around specific locations and dates, suggesting that events, weather and transport disruptions could improve future models.</span>
-<span id="cb40-1063"><a href="#cb40-1063" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1064"><a href="#cb40-1064" aria-hidden="true" tabindex="-1"></a><span class="fu">## Recommendations</span></span>
-<span id="cb40-1065"><a href="#cb40-1065" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1066"><a href="#cb40-1066" aria-hidden="true" tabindex="-1"></a>The analysis suggests several practical applications for pedestrian-demand forecasting.</span>
-<span id="cb40-1067"><a href="#cb40-1067" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1068"><a href="#cb40-1068" aria-hidden="true" tabindex="-1"></a>**Resource and staffing planning.** Predicted demand patterns could help organisations anticipate periods of high pedestrian activity and allocate staff or operational resources accordingly.</span>
-<span id="cb40-1069"><a href="#cb40-1069" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1070"><a href="#cb40-1070" aria-hidden="true" tabindex="-1"></a>**Transport and urban planning.** Location-level demand forecasts could provide additional evidence for understanding how different parts of the city are used throughout the day and support infrastructure or accessibility planning.</span>
-<span id="cb40-1071"><a href="#cb40-1071" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1072"><a href="#cb40-1072" aria-hidden="true" tabindex="-1"></a>**Event-aware forecasting.** The largest prediction errors indicate that unusual demand spikes require additional contextual information. Integrating event schedules, public holidays, weather and transport disruption data could improve forecasting during abnormal conditions.</span>
-<span id="cb40-1073"><a href="#cb40-1073" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1074"><a href="#cb40-1074" aria-hidden="true" tabindex="-1"></a>**Model monitoring.** Forecast accuracy should be monitored over time as pedestrian behaviour and the sensor network evolve. Large deviations between predicted and observed demand could also be used as signals for unusual activity or changing mobility patterns.</span>
-<span id="cb40-1075"><a href="#cb40-1075" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1076"><a href="#cb40-1076" aria-hidden="true" tabindex="-1"></a>The model should therefore be treated as a decision-support system rather than a replacement for operational judgement.</span>
-<span id="cb40-1077"><a href="#cb40-1077" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-848"><a href="#cb40-848" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-849"><a href="#cb40-849" aria-hidden="true" tabindex="-1"></a><span class="fu">## Error Analysis</span></span>
+<span id="cb40-850"><a href="#cb40-850" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-851"><a href="#cb40-851" aria-hidden="true" tabindex="-1"></a>Aggregate performance metrics can conceal important model weaknesses. Prediction errors are therefore examined across individual observations to identify conditions under which the model performs poorly.</span>
+<span id="cb40-852"><a href="#cb40-852" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-853"><a href="#cb40-853" aria-hidden="true" tabindex="-1"></a><span class="fu">### Largest Prediction Errors</span></span>
+<span id="cb40-854"><a href="#cb40-854" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-857"><a href="#cb40-857" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb40-858"><a href="#cb40-858" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the 8 largest prediction errors</span></span>
+<span id="cb40-859"><a href="#cb40-859" aria-hidden="true" tabindex="-1"></a>largest_errors <span class="op">=</span> (</span>
+<span id="cb40-860"><a href="#cb40-860" aria-hidden="true" tabindex="-1"></a>    prediction_results</span>
+<span id="cb40-861"><a href="#cb40-861" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">&quot;Absolute_Error&quot;</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb40-862"><a href="#cb40-862" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb40-863"><a href="#cb40-863" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb40-864"><a href="#cb40-864" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Sensing_Date&quot;</span>,</span>
+<span id="cb40-865"><a href="#cb40-865" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;HourDay&quot;</span>,</span>
+<span id="cb40-866"><a href="#cb40-866" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Sensor_Description&quot;</span>,</span>
+<span id="cb40-867"><a href="#cb40-867" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Total_of_Directions&quot;</span>,</span>
+<span id="cb40-868"><a href="#cb40-868" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Predicted_Demand&quot;</span>,</span>
+<span id="cb40-869"><a href="#cb40-869" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Absolute_Error&quot;</span></span>
+<span id="cb40-870"><a href="#cb40-870" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb40-871"><a href="#cb40-871" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb40-872"><a href="#cb40-872" aria-hidden="true" tabindex="-1"></a>    .head(<span class="dv">8</span>)</span>
+<span id="cb40-873"><a href="#cb40-873" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-874"><a href="#cb40-874" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-875"><a href="#cb40-875" aria-hidden="true" tabindex="-1"></a>largest_errors.<span class="bu">round</span>(<span class="dv">1</span>)</span>
+<span id="cb40-876"><a href="#cb40-876" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-877"><a href="#cb40-877" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-878"><a href="#cb40-878" aria-hidden="true" tabindex="-1"></a>The largest prediction errors are concentrated around specific dates and locations rather than being evenly distributed across the test period. Several extreme underpredictions occurred around RMIT and Swanston Street on 9 August 2026, where observed pedestrian volumes were several times greater than the model&#39;s prediction. This suggests that unusual events or other external factors can create substantial demand shocks that are not captured by the current temporal and location features.</span>
+<span id="cb40-879"><a href="#cb40-879" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-880"><a href="#cb40-880" aria-hidden="true" tabindex="-1"></a><span class="fu">### Prediction Error by Date</span></span>
+<span id="cb40-881"><a href="#cb40-881" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-882"><a href="#cb40-882" aria-hidden="true" tabindex="-1"></a>Average model error is examined across the test period to identify dates on which pedestrian behaviour deviated most strongly from historical patterns.</span>
+<span id="cb40-883"><a href="#cb40-883" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-886"><a href="#cb40-886" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb40-887"><a href="#cb40-887" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate prediction error by date</span></span>
+<span id="cb40-888"><a href="#cb40-888" aria-hidden="true" tabindex="-1"></a>error_by_date <span class="op">=</span> (</span>
+<span id="cb40-889"><a href="#cb40-889" aria-hidden="true" tabindex="-1"></a>    prediction_results</span>
+<span id="cb40-890"><a href="#cb40-890" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">&quot;Sensing_Date&quot;</span>)[<span class="st">&quot;Absolute_Error&quot;</span>]</span>
+<span id="cb40-891"><a href="#cb40-891" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
+<span id="cb40-892"><a href="#cb40-892" aria-hidden="true" tabindex="-1"></a>    .sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb40-893"><a href="#cb40-893" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-894"><a href="#cb40-894" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-895"><a href="#cb40-895" aria-hidden="true" tabindex="-1"></a>error_by_date.head(<span class="dv">10</span>)</span>
+<span id="cb40-896"><a href="#cb40-896" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-897"><a href="#cb40-897" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-900"><a href="#cb40-900" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb40-901"><a href="#cb40-901" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot average error across the test period</span></span>
+<span id="cb40-902"><a href="#cb40-902" aria-hidden="true" tabindex="-1"></a>error_by_date_plot <span class="op">=</span> error_by_date.sort_index()</span>
+<span id="cb40-903"><a href="#cb40-903" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-904"><a href="#cb40-904" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb40-905"><a href="#cb40-905" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-906"><a href="#cb40-906" aria-hidden="true" tabindex="-1"></a>plt.plot(</span>
+<span id="cb40-907"><a href="#cb40-907" aria-hidden="true" tabindex="-1"></a>    error_by_date_plot.index,</span>
+<span id="cb40-908"><a href="#cb40-908" aria-hidden="true" tabindex="-1"></a>    error_by_date_plot.values,</span>
+<span id="cb40-909"><a href="#cb40-909" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="st">&quot;o&quot;</span></span>
+<span id="cb40-910"><a href="#cb40-910" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-911"><a href="#cb40-911" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-912"><a href="#cb40-912" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Average Prediction Error by Date&quot;</span>)</span>
+<span id="cb40-913"><a href="#cb40-913" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&quot;Date&quot;</span>)</span>
+<span id="cb40-914"><a href="#cb40-914" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">&quot;Mean Absolute Error&quot;</span>)</span>
+<span id="cb40-915"><a href="#cb40-915" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb40-916"><a href="#cb40-916" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb40-917"><a href="#cb40-917" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-918"><a href="#cb40-918" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb40-919"><a href="#cb40-919" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-920"><a href="#cb40-920" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-921"><a href="#cb40-921" aria-hidden="true" tabindex="-1"></a>Prediction error varies across the August test period, with 9 August producing the highest average error (MAE ≈ 130). Examination of the largest individual errors shows that this deterioration is concentrated around unusually high pedestrian counts at locations including RMIT and Swanston Street. This suggests that the model captures regular mobility patterns effectively but is less accurate during unusual demand spikes. </span>
+<span id="cb40-922"><a href="#cb40-922" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-923"><a href="#cb40-923" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Refinement</span></span>
+<span id="cb40-924"><a href="#cb40-924" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-925"><a href="#cb40-925" aria-hidden="true" tabindex="-1"></a><span class="fu">### Cyclical Time Features</span></span>
+<span id="cb40-926"><a href="#cb40-926" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-927"><a href="#cb40-927" aria-hidden="true" tabindex="-1"></a>Time variables have a cyclical structure that is not represented by their raw numerical values. For example, 23:00 and 00:00 are adjacent hours despite appearing numerically far apart.</span>
+<span id="cb40-928"><a href="#cb40-928" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-929"><a href="#cb40-929" aria-hidden="true" tabindex="-1"></a>Sine and cosine transformations are therefore used to represent hour of day and day of week as cyclical features.</span>
+<span id="cb40-930"><a href="#cb40-930" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-933"><a href="#cb40-933" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb40-934"><a href="#cb40-934" aria-hidden="true" tabindex="-1"></a><span class="co"># Create cyclical time features</span></span>
+<span id="cb40-935"><a href="#cb40-935" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;Hour_Sin&quot;</span>] <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> df[<span class="st">&quot;HourDay&quot;</span>] <span class="op">/</span> <span class="dv">24</span>)</span>
+<span id="cb40-936"><a href="#cb40-936" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;Hour_Cos&quot;</span>] <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> df[<span class="st">&quot;HourDay&quot;</span>] <span class="op">/</span> <span class="dv">24</span>)</span>
+<span id="cb40-937"><a href="#cb40-937" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-938"><a href="#cb40-938" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;Day_Sin&quot;</span>] <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> df[<span class="st">&quot;Day_Number&quot;</span>] <span class="op">/</span> <span class="dv">7</span>)</span>
+<span id="cb40-939"><a href="#cb40-939" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&quot;Day_Cos&quot;</span>] <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> df[<span class="st">&quot;Day_Number&quot;</span>] <span class="op">/</span> <span class="dv">7</span>)</span>
+<span id="cb40-940"><a href="#cb40-940" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-941"><a href="#cb40-941" aria-hidden="true" tabindex="-1"></a>df[</span>
+<span id="cb40-942"><a href="#cb40-942" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb40-943"><a href="#cb40-943" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;HourDay&quot;</span>,</span>
+<span id="cb40-944"><a href="#cb40-944" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Hour_Sin&quot;</span>,</span>
+<span id="cb40-945"><a href="#cb40-945" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Hour_Cos&quot;</span>,</span>
+<span id="cb40-946"><a href="#cb40-946" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Day_Number&quot;</span>,</span>
+<span id="cb40-947"><a href="#cb40-947" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Day_Sin&quot;</span>,</span>
+<span id="cb40-948"><a href="#cb40-948" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Day_Cos&quot;</span></span>
+<span id="cb40-949"><a href="#cb40-949" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb40-950"><a href="#cb40-950" aria-hidden="true" tabindex="-1"></a>].head()</span>
+<span id="cb40-951"><a href="#cb40-951" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-952"><a href="#cb40-952" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-953"><a href="#cb40-953" aria-hidden="true" tabindex="-1"></a><span class="fu">### Refined Gradient Boosting Model</span></span>
+<span id="cb40-954"><a href="#cb40-954" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-955"><a href="#cb40-955" aria-hidden="true" tabindex="-1"></a>The refined model removes the redundant weekend indicator and replaces raw hour and day-of-week variables with cyclical representations.</span>
+<span id="cb40-956"><a href="#cb40-956" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-959"><a href="#cb40-959" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb40-960"><a href="#cb40-960" aria-hidden="true" tabindex="-1"></a>refined_features <span class="op">=</span> [</span>
+<span id="cb40-961"><a href="#cb40-961" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Location_ID&quot;</span>,</span>
+<span id="cb40-962"><a href="#cb40-962" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Hour_Sin&quot;</span>,</span>
+<span id="cb40-963"><a href="#cb40-963" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Hour_Cos&quot;</span>,</span>
+<span id="cb40-964"><a href="#cb40-964" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Day_Sin&quot;</span>,</span>
+<span id="cb40-965"><a href="#cb40-965" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Day_Cos&quot;</span>,</span>
+<span id="cb40-966"><a href="#cb40-966" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Month&quot;</span></span>
+<span id="cb40-967"><a href="#cb40-967" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb40-968"><a href="#cb40-968" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-969"><a href="#cb40-969" aria-hidden="true" tabindex="-1"></a>X_refined <span class="op">=</span> df[refined_features]</span>
+<span id="cb40-970"><a href="#cb40-970" aria-hidden="true" tabindex="-1"></a>y_refined <span class="op">=</span> df[<span class="st">&quot;Total_of_Directions&quot;</span>]</span>
+<span id="cb40-971"><a href="#cb40-971" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-972"><a href="#cb40-972" aria-hidden="true" tabindex="-1"></a><span class="co"># Preserve chronological train/test split</span></span>
+<span id="cb40-973"><a href="#cb40-973" aria-hidden="true" tabindex="-1"></a>train_mask <span class="op">=</span> df[<span class="st">&quot;Sensing_Date&quot;</span>] <span class="op">&lt;</span> <span class="st">&quot;2026-08-01&quot;</span></span>
+<span id="cb40-974"><a href="#cb40-974" aria-hidden="true" tabindex="-1"></a>test_mask <span class="op">=</span> (</span>
+<span id="cb40-975"><a href="#cb40-975" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">&quot;Sensing_Date&quot;</span>] <span class="op">&gt;=</span> <span class="st">&quot;2026-08-01&quot;</span>) <span class="op">&amp;</span></span>
+<span id="cb40-976"><a href="#cb40-976" aria-hidden="true" tabindex="-1"></a>    (df[<span class="st">&quot;Sensing_Date&quot;</span>] <span class="op">&lt;=</span> <span class="st">&quot;2026-08-13&quot;</span>)</span>
+<span id="cb40-977"><a href="#cb40-977" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-978"><a href="#cb40-978" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-979"><a href="#cb40-979" aria-hidden="true" tabindex="-1"></a>X_train_refined <span class="op">=</span> X_refined[train_mask]</span>
+<span id="cb40-980"><a href="#cb40-980" aria-hidden="true" tabindex="-1"></a>X_test_refined <span class="op">=</span> X_refined[test_mask]</span>
+<span id="cb40-981"><a href="#cb40-981" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-982"><a href="#cb40-982" aria-hidden="true" tabindex="-1"></a>y_train_refined <span class="op">=</span> y_refined[train_mask]</span>
+<span id="cb40-983"><a href="#cb40-983" aria-hidden="true" tabindex="-1"></a>y_test_refined <span class="op">=</span> y_refined[test_mask]</span>
+<span id="cb40-984"><a href="#cb40-984" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-985"><a href="#cb40-985" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocess Location_ID as categorical</span></span>
+<span id="cb40-986"><a href="#cb40-986" aria-hidden="true" tabindex="-1"></a>refined_preprocessor <span class="op">=</span> ColumnTransformer(</span>
+<span id="cb40-987"><a href="#cb40-987" aria-hidden="true" tabindex="-1"></a>    transformers<span class="op">=</span>[</span>
+<span id="cb40-988"><a href="#cb40-988" aria-hidden="true" tabindex="-1"></a>        (</span>
+<span id="cb40-989"><a href="#cb40-989" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;location&quot;</span>,</span>
+<span id="cb40-990"><a href="#cb40-990" aria-hidden="true" tabindex="-1"></a>            OneHotEncoder(</span>
+<span id="cb40-991"><a href="#cb40-991" aria-hidden="true" tabindex="-1"></a>                handle_unknown<span class="op">=</span><span class="st">&quot;ignore&quot;</span>,</span>
+<span id="cb40-992"><a href="#cb40-992" aria-hidden="true" tabindex="-1"></a>                sparse_output<span class="op">=</span><span class="va">False</span></span>
+<span id="cb40-993"><a href="#cb40-993" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb40-994"><a href="#cb40-994" aria-hidden="true" tabindex="-1"></a>            [<span class="st">&quot;Location_ID&quot;</span>]</span>
+<span id="cb40-995"><a href="#cb40-995" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb40-996"><a href="#cb40-996" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb40-997"><a href="#cb40-997" aria-hidden="true" tabindex="-1"></a>    remainder<span class="op">=</span><span class="st">&quot;passthrough&quot;</span></span>
+<span id="cb40-998"><a href="#cb40-998" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-999"><a href="#cb40-999" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1000"><a href="#cb40-1000" aria-hidden="true" tabindex="-1"></a><span class="co"># Build refined model</span></span>
+<span id="cb40-1001"><a href="#cb40-1001" aria-hidden="true" tabindex="-1"></a>refined_model <span class="op">=</span> Pipeline(</span>
+<span id="cb40-1002"><a href="#cb40-1002" aria-hidden="true" tabindex="-1"></a>    steps<span class="op">=</span>[</span>
+<span id="cb40-1003"><a href="#cb40-1003" aria-hidden="true" tabindex="-1"></a>        (<span class="st">&quot;preprocessor&quot;</span>, refined_preprocessor),</span>
+<span id="cb40-1004"><a href="#cb40-1004" aria-hidden="true" tabindex="-1"></a>        (</span>
+<span id="cb40-1005"><a href="#cb40-1005" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;model&quot;</span>,</span>
+<span id="cb40-1006"><a href="#cb40-1006" aria-hidden="true" tabindex="-1"></a>            HistGradientBoostingRegressor(</span>
+<span id="cb40-1007"><a href="#cb40-1007" aria-hidden="true" tabindex="-1"></a>                max_iter<span class="op">=</span><span class="dv">200</span>,</span>
+<span id="cb40-1008"><a href="#cb40-1008" aria-hidden="true" tabindex="-1"></a>                learning_rate<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb40-1009"><a href="#cb40-1009" aria-hidden="true" tabindex="-1"></a>                max_leaf_nodes<span class="op">=</span><span class="dv">31</span>,</span>
+<span id="cb40-1010"><a href="#cb40-1010" aria-hidden="true" tabindex="-1"></a>                random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb40-1011"><a href="#cb40-1011" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb40-1012"><a href="#cb40-1012" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb40-1013"><a href="#cb40-1013" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb40-1014"><a href="#cb40-1014" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-1015"><a href="#cb40-1015" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1016"><a href="#cb40-1016" aria-hidden="true" tabindex="-1"></a><span class="co"># Train</span></span>
+<span id="cb40-1017"><a href="#cb40-1017" aria-hidden="true" tabindex="-1"></a>refined_model.fit(X_train_refined, y_train_refined)</span>
+<span id="cb40-1018"><a href="#cb40-1018" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1019"><a href="#cb40-1019" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict</span></span>
+<span id="cb40-1020"><a href="#cb40-1020" aria-hidden="true" tabindex="-1"></a>refined_predictions <span class="op">=</span> refined_model.predict(X_test_refined)</span>
+<span id="cb40-1021"><a href="#cb40-1021" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1022"><a href="#cb40-1022" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate</span></span>
+<span id="cb40-1023"><a href="#cb40-1023" aria-hidden="true" tabindex="-1"></a>refined_mae <span class="op">=</span> mean_absolute_error(</span>
+<span id="cb40-1024"><a href="#cb40-1024" aria-hidden="true" tabindex="-1"></a>    y_test_refined,</span>
+<span id="cb40-1025"><a href="#cb40-1025" aria-hidden="true" tabindex="-1"></a>    refined_predictions</span>
+<span id="cb40-1026"><a href="#cb40-1026" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-1027"><a href="#cb40-1027" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1028"><a href="#cb40-1028" aria-hidden="true" tabindex="-1"></a>refined_rmse <span class="op">=</span> np.sqrt(</span>
+<span id="cb40-1029"><a href="#cb40-1029" aria-hidden="true" tabindex="-1"></a>    mean_squared_error(</span>
+<span id="cb40-1030"><a href="#cb40-1030" aria-hidden="true" tabindex="-1"></a>        y_test_refined,</span>
+<span id="cb40-1031"><a href="#cb40-1031" aria-hidden="true" tabindex="-1"></a>        refined_predictions</span>
+<span id="cb40-1032"><a href="#cb40-1032" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb40-1033"><a href="#cb40-1033" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-1034"><a href="#cb40-1034" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1035"><a href="#cb40-1035" aria-hidden="true" tabindex="-1"></a>refined_r2 <span class="op">=</span> r2_score(</span>
+<span id="cb40-1036"><a href="#cb40-1036" aria-hidden="true" tabindex="-1"></a>    y_test_refined,</span>
+<span id="cb40-1037"><a href="#cb40-1037" aria-hidden="true" tabindex="-1"></a>    refined_predictions</span>
+<span id="cb40-1038"><a href="#cb40-1038" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-1039"><a href="#cb40-1039" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1040"><a href="#cb40-1040" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Original Gradient Boosting:&quot;</span>)</span>
+<span id="cb40-1041"><a href="#cb40-1041" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;MAE:&quot;</span>, <span class="bu">round</span>(gb_mae, <span class="dv">2</span>))</span>
+<span id="cb40-1042"><a href="#cb40-1042" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;RMSE:&quot;</span>, <span class="bu">round</span>(gb_rmse, <span class="dv">2</span>))</span>
+<span id="cb40-1043"><a href="#cb40-1043" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;R²:&quot;</span>, <span class="bu">round</span>(gb_r2, <span class="dv">3</span>))</span>
+<span id="cb40-1044"><a href="#cb40-1044" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1045"><a href="#cb40-1045" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Refined Gradient Boosting:&quot;</span>)</span>
+<span id="cb40-1046"><a href="#cb40-1046" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;MAE:&quot;</span>, <span class="bu">round</span>(refined_mae, <span class="dv">2</span>))</span>
+<span id="cb40-1047"><a href="#cb40-1047" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;RMSE:&quot;</span>, <span class="bu">round</span>(refined_rmse, <span class="dv">2</span>))</span>
+<span id="cb40-1048"><a href="#cb40-1048" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;R²:&quot;</span>, <span class="bu">round</span>(refined_r2, <span class="dv">3</span>))</span>
+<span id="cb40-1049"><a href="#cb40-1049" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb40-1050"><a href="#cb40-1050" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1051"><a href="#cb40-1051" aria-hidden="true" tabindex="-1"></a>Cyclical encoding produced only a marginal change in predictive performance. R² increased from 0.895 to 0.899 and RMSE decreased from 184.49 to 180.75, while MAE increased slightly from 98.14 to 101.29. This suggests that the original gradient boosting model was already capable of capturing much of the nonlinear temporal structure. Given its lower MAE and simpler feature representation, the original gradient boosting model is retained as the primary model.</span>
+<span id="cb40-1052"><a href="#cb40-1052" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1053"><a href="#cb40-1053" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key Findings</span></span>
+<span id="cb40-1054"><a href="#cb40-1054" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1055"><a href="#cb40-1055" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Pedestrian demand is highly location-dependent.** Central-city locations including Flinders Lane–Swanston Street, Town Hall, Melbourne Central and Southbank Promenade recorded some of the highest average pedestrian volumes.</span>
+<span id="cb40-1056"><a href="#cb40-1056" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1057"><a href="#cb40-1057" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Time of day is a major driver of demand.** Activity rises sharply through the morning and remains elevated during the day, with clear differences between weekday and weekend profiles.</span>
+<span id="cb40-1058"><a href="#cb40-1058" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1059"><a href="#cb40-1059" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Nonlinear machine-learning models substantially improve forecasting.** Gradient Boosting achieved an MAE of 98.14 and R² of 0.895 on unseen observations from 1–13 August, reducing MAE by approximately 75% relative to the baseline.</span>
+<span id="cb40-1060"><a href="#cb40-1060" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1061"><a href="#cb40-1061" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Location and hour of day are the strongest predictive features.** Permutation importance showed substantially greater contributions from these variables than other temporal features.</span>
+<span id="cb40-1062"><a href="#cb40-1062" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1063"><a href="#cb40-1063" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Extreme demand spikes remain difficult to forecast.** The largest errors were concentrated around specific locations and dates, suggesting that events, weather and transport disruptions could improve future models.</span>
+<span id="cb40-1064"><a href="#cb40-1064" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1065"><a href="#cb40-1065" aria-hidden="true" tabindex="-1"></a><span class="fu">## Recommendations</span></span>
+<span id="cb40-1066"><a href="#cb40-1066" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1067"><a href="#cb40-1067" aria-hidden="true" tabindex="-1"></a>The analysis suggests several practical applications for pedestrian-demand forecasting.</span>
+<span id="cb40-1068"><a href="#cb40-1068" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1069"><a href="#cb40-1069" aria-hidden="true" tabindex="-1"></a>**Resource and staffing planning.** Predicted demand patterns could help organisations anticipate periods of high pedestrian activity and allocate staff or operational resources accordingly.</span>
+<span id="cb40-1070"><a href="#cb40-1070" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1071"><a href="#cb40-1071" aria-hidden="true" tabindex="-1"></a>**Transport and urban planning.** Location-level demand forecasts could provide additional evidence for understanding how different parts of the city are used throughout the day and support infrastructure or accessibility planning.</span>
+<span id="cb40-1072"><a href="#cb40-1072" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1073"><a href="#cb40-1073" aria-hidden="true" tabindex="-1"></a>**Event-aware forecasting.** The largest prediction errors indicate that unusual demand spikes require additional contextual information. Integrating event schedules, public holidays, weather and transport disruption data could improve forecasting during abnormal conditions.</span>
+<span id="cb40-1074"><a href="#cb40-1074" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1075"><a href="#cb40-1075" aria-hidden="true" tabindex="-1"></a>**Model monitoring.** Forecast accuracy should be monitored over time as pedestrian behaviour and the sensor network evolve. Large deviations between predicted and observed demand could also be used as signals for unusual activity or changing mobility patterns.</span>
+<span id="cb40-1076"><a href="#cb40-1076" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1077"><a href="#cb40-1077" aria-hidden="true" tabindex="-1"></a>The model should therefore be treated as a decision-support system rather than a replacement for operational judgement.</span>
 <span id="cb40-1078"><a href="#cb40-1078" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1079"><a href="#cb40-1079" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Governance and Responsible Model Use</span></span>
-<span id="cb40-1080"><a href="#cb40-1080" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1081"><a href="#cb40-1081" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Quality</span></span>
-<span id="cb40-1082"><a href="#cb40-1082" aria-hidden="true" tabindex="-1"></a>No pedestrian-count observations were missing, although 1,017 records lacked descriptive sensor metadata. These observations were retained because the variables required for modelling remained available.</span>
-<span id="cb40-1083"><a href="#cb40-1083" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1079"><a href="#cb40-1079" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1080"><a href="#cb40-1080" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Governance and Responsible Model Use</span></span>
+<span id="cb40-1081"><a href="#cb40-1081" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1082"><a href="#cb40-1082" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Quality</span></span>
+<span id="cb40-1083"><a href="#cb40-1083" aria-hidden="true" tabindex="-1"></a>No pedestrian-count observations were missing, although 1,017 records lacked descriptive sensor metadata. These observations were retained because the variables required for modelling remained available.</span>
 <span id="cb40-1084"><a href="#cb40-1084" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1085"><a href="#cb40-1085" aria-hidden="true" tabindex="-1"></a><span class="fu">### Representativeness</span></span>
-<span id="cb40-1086"><a href="#cb40-1086" aria-hidden="true" tabindex="-1"></a>The sensor network covers monitored locations rather than a random sample of Melbourne. Results therefore describe activity within the City of Melbourne sensor network and should not be interpreted as complete city-wide pedestrian estimates.</span>
-<span id="cb40-1087"><a href="#cb40-1087" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1088"><a href="#cb40-1088" aria-hidden="true" tabindex="-1"></a><span class="fu">### Model Risk</span></span>
-<span id="cb40-1089"><a href="#cb40-1089" aria-hidden="true" tabindex="-1"></a>The model performs well under recurring mobility patterns but underpredicts some extreme demand spikes. External factors such as events, weather, public holidays and transport disruptions are not currently included.</span>
-<span id="cb40-1090"><a href="#cb40-1090" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-1091"><a href="#cb40-1091" aria-hidden="true" tabindex="-1"></a><span class="fu">### Responsible Use</span></span>
-<span id="cb40-1092"><a href="#cb40-1092" aria-hidden="true" tabindex="-1"></a>Forecasts are best used as decision-support for planning and resource allocation. Performance should be monitored over time as pedestrian behaviour and the sensor network evolve.</span>
+<span id="cb40-1085"><a href="#cb40-1085" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1086"><a href="#cb40-1086" aria-hidden="true" tabindex="-1"></a><span class="fu">### Representativeness</span></span>
+<span id="cb40-1087"><a href="#cb40-1087" aria-hidden="true" tabindex="-1"></a>The sensor network covers monitored locations rather than a random sample of Melbourne. Results therefore describe activity within the City of Melbourne sensor network and should not be interpreted as complete city-wide pedestrian estimates.</span>
+<span id="cb40-1088"><a href="#cb40-1088" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1089"><a href="#cb40-1089" aria-hidden="true" tabindex="-1"></a><span class="fu">### Model Risk</span></span>
+<span id="cb40-1090"><a href="#cb40-1090" aria-hidden="true" tabindex="-1"></a>The model performs well under recurring mobility patterns but underpredicts some extreme demand spikes. External factors such as events, weather, public holidays and transport disruptions are not currently included.</span>
+<span id="cb40-1091"><a href="#cb40-1091" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-1092"><a href="#cb40-1092" aria-hidden="true" tabindex="-1"></a><span class="fu">### Responsible Use</span></span>
+<span id="cb40-1093"><a href="#cb40-1093" aria-hidden="true" tabindex="-1"></a>Forecasts are best used as decision-support for planning and resource allocation. Performance should be monitored over time as pedestrian behaviour and the sensor network evolve.</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
