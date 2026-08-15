@@ -1,0 +1,15 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Quarto / Jupyter temporary files
+.quarto/
+*_files/
+*.quarto_ipynb*
+
+# macOS
+.DS_Store
