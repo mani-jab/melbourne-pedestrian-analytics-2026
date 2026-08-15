@@ -1,3 +1,7 @@
+## View Full Analysis
+
+**[Open the interactive Quarto report](https://mani-jab.github.io/melbourne-pedestrian-analytics-2026/mobility_analysis.html)**
+
 # Melbourne Pedestrian Mobility Analytics 2026
 
 An end-to-end project analysing 500,000+ hourly pedestrian observations across Melbourne to understand mobility patterns and predict future pedestrian demand using machine learning.

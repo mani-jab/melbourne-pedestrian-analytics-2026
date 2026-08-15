@@ -3,6 +3,7 @@ title: "Melbourne Pedestrian Mobility Analytics 2026"
 subtitle: "Exploring and Predicting Pedestrian Activity Across Melbourne"
 author: "Mani Jabbari"
 date: "2026-08-16"
+output-file: index.html
 
 format:
   html:
