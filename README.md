@@ -100,7 +100,7 @@ Four approaches were compared:
 Rather than randomly splitting observations, the models were trained on earlier observations and evaluated on a **future chronological holdout period**.
 
 **Training period:** January–July 2026  
-**Testing period:** August 2026
+**Testing period:** 1–13 August 2026
 
 This prevents future observations from leaking into model training and better represents a real forecasting scenario.
 
