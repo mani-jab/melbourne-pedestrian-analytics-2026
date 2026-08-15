@@ -1,4 +1,4 @@
-# Melbourne Mobility & Demand Analytics
+# Melbourne Pedestrian Mobility Analytics 2026
 
 An end-to-end project analysing over **500,000 hourly pedestrian observations** from Melbourne's pedestrian sensor network and developing machine-learning models to forecast pedestrian demand.
 
