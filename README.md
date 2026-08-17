@@ -1,6 +1,6 @@
 ## View Full Analysis
 
-**[Open the full Quarto report](https://mani-jab.github.io/melbourne-pedestrian-analytics-2026/mobility_analysis.html)**
+**[Open the full Quarto report here](https://mani-jab.github.io/melbourne-pedestrian-analytics-2026/mobility_analysis.html)**
 
 # Melbourne Pedestrian Mobility Analytics 2026
 
