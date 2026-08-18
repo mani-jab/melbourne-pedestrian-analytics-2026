@@ -223,3 +223,4 @@ The forecasting system could be extended by incorporating:
 - Interactive forecasting dashboards
 
 These additions could help explain unusual pedestrian-demand spikes that cannot be captured using location and temporal patterns alone.
+Unexpected pedestrian-demand spikes examples include public transport failures, app-driven dynamic routing like google maps, protests, university open days, flash sales, and building evacuations.
